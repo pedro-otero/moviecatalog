@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb-base",
+    "react-app"
+  ],
+  "rules": {
+    "react/sort-prop-types": [
+      "error"
+    ],
+    "react/jsx-indent": [
+      "error",
+      2
+    ],
+    "react/jsx-indent-props": [
+      "error"
+    ],
+    "react/jsx-max-props-per-line": [
+      "error"
+    ],
+    "react/jsx-first-prop-new-line":[
+      "error",
+      "multiline-multiprop"
+    ],
+    "react/jsx-space-before-closing": [
+      "error",
+      "always"
+    ],
+    "react/react-in-jsx-scope": [
+      "error"
+    ],
+    "import/no-named-as-default": [
+      "off"
+    ]
+  }
+}

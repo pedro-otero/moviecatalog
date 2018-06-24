@@ -15,6 +15,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.8"
+    "@storybook/react": "^3.4.8",
+    "eslint-config-airbnb-base": "12.1.0"
   }
 }
