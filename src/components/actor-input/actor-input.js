@@ -16,9 +16,9 @@ class ActorInput extends React.Component {
     this.save();
   }
 
-  onNameChange = name => this.setState({ name });
+  onNameChange = e => this.setState({ name: e.target.value });
 
-  onBioChange = bio => this.setState({ bio });
+  onBioChange = e => this.setState({ bio: e.target.value });
 
   save = () => {
     const { id, name, bio } = this.state;
