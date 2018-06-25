@@ -3,8 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Movie from './movie';
 
-storiesOf('Button', module)
-  .add('with text', () => (
+storiesOf('Movie', module)
+  .add('Full', () => (
     <Movie
         title="Chick Flick"
         synopsis={`
