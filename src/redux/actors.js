@@ -45,6 +45,10 @@ export const reduce = (state = {}, { type, data }) => {
         },
       });
     }
+    case REMOVE_ACTOR: {
+      const { [data.id]: value, ...theRest } = state;
+      return theRest;
+    }
     default: {
       return state;
     }

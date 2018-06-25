@@ -73,4 +73,19 @@ describe('Actors', () => {
       },
     });
   });
+
+  it('REDUCE: Remove', () => {
+    const actors = reduce({
+      id: {
+        name: 'Someone',
+        bio: 'Born somewhere on 1944',
+      },
+    }, {
+      type: REMOVE_ACTOR,
+      data: {
+        id: 'id',
+      },
+    });
+    expect(actors).toEqual({});
+  });
 });
