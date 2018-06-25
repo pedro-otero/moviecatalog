@@ -11,6 +11,10 @@ class MovieInput extends React.Component {
       synopsis: props.synopsis,
       genres: props.genres,
       genre: '',
+      actors: Object
+        .entries(props.actors)
+        .map(([key, actor]) =>
+          Object.assign({}, actor, { selected: false, id: key })),
     };
   }
 
@@ -29,7 +33,6 @@ class MovieInput extends React.Component {
   });
 
   enterGenre = (e) => {
-    console.log('enter');
     if (e.keyCode == 13) {
       this.setState({
         genres: [...this.state.genres, this.state.genre],
@@ -38,15 +41,29 @@ class MovieInput extends React.Component {
     }
   };
 
+  selectActor = i => () => {
+    const { actors } = this.state;
+    const selectedActor = actors[i];
+    const newState = Object.assign([...actors], {
+      [i]: Object.assign({}, selectedActor, { selected: !selectedActor.selected }),
+    });
+    this.setState({
+      actors: newState,
+    });
+  };
+
   save = () => {
     const {
-      id, title, synopsis, genres,
+      id, title, synopsis, genres, actors,
     } = this.state;
+    const selectedActors = actors
+      .filter(actor => actor.selected)
+      .map(actor => actor.id);
     if (this.props.id) {
-      this.props.actions.update(id, title, synopsis, genres);
+      this.props.actions.update(id, title, synopsis, genres, selectedActors);
     } else {
       const newId = uuid();
-      this.props.actions.create(newId, title, synopsis, genres);
+      this.props.actions.create(newId, title, synopsis, genres, selectedActors);
     }
   };
 
@@ -85,6 +102,16 @@ class MovieInput extends React.Component {
             margin="normal"
             multiline />
         <br />
+        {this.state.actors.map((actor, i) => (
+          <Button
+              key={`actor-${actor.name}`}
+              variant="contained"
+              color={actor.selected ? 'secondary' : 'default'}
+              onClick={this.selectActor(i)}>
+            {actor.name}
+          </Button>
+        ))}
+        <br />
         <Button
             variant="contained"
             color="primary"
@@ -101,6 +128,7 @@ MovieInput.propTypes = {
     create: PropTypes.func,
     update: PropTypes.func,
   }),
+  actors: PropTypes.object,
   genres: PropTypes.array,
   id: PropTypes.string,
   synopsis: PropTypes.string,

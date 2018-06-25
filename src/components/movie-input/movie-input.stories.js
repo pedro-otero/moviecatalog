@@ -9,6 +9,11 @@ storiesOf('Movie Input', module)
         title="Some Movie"
         synopsis="Something that happens"
         genres={['Genre #1', 'Genre #2']}
+        actors={{
+          ac1: {
+            name: 'Actor #1',
+          },
+        }}
         actions={{
           create: action(),
           update: action(),
