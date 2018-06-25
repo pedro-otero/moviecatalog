@@ -1,4 +1,4 @@
-import { ADD_MOVIE, addMovie, reduce, REMOVE_MOVIE, removeMovie, UPDATE_MOVIE, updateMovie } from './movies';
+import { ADD_MOVIE, addMovie, reduceMovies, REMOVE_MOVIE, removeMovie, UPDATE_MOVIE, updateMovie } from './movies';
 
 describe('Movies', () => {
   it('ACTION: Add', () => {
@@ -40,7 +40,7 @@ describe('Movies', () => {
   });
 
   it('REDUCE: Add', () => {
-    const movies = reduce({}, {
+    const movies = reduceMovies({}, {
       type: ADD_MOVIE,
       data: {
         id: 1,
@@ -61,7 +61,7 @@ describe('Movies', () => {
   });
 
   it('REDUCE: Update', () => {
-    const movies = reduce({
+    const movies = reduceMovies({
       1: {
         title: 'Title',
         synopsis: 'Synopsis',
@@ -89,7 +89,7 @@ describe('Movies', () => {
   });
 
   it('REDUCE: Remove', () => {
-    const movies = reduce({
+    const movies = reduceMovies({
       id: {
         title: 'Title changed',
         synopsis: 'Synopsis changed',

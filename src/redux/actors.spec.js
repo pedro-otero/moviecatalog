@@ -1,4 +1,4 @@
-import { ADD_ACTOR, addActor, reduce, REMOVE_ACTOR, removeActor, UPDATE_ACTOR, updateActor } from './actors';
+import { ADD_ACTOR, addActor, reduceActors, REMOVE_ACTOR, removeActor, UPDATE_ACTOR, updateActor } from './actors';
 
 describe('Actors', () => {
   it('ACTION: Add', () => {
@@ -36,7 +36,7 @@ describe('Actors', () => {
   });
 
   it('REDUCE: Add', () => {
-    const actors = reduce({}, {
+    const actors = reduceActors({}, {
       type: ADD_ACTOR,
       data: {
         id: 1,
@@ -53,7 +53,7 @@ describe('Actors', () => {
   });
 
   it('REDUCE: Update', () => {
-    const actors = reduce({
+    const actors = reduceActors({
       1: {
         name: 'Someone',
         bio: 'Born somewhere on 1944',
@@ -75,7 +75,7 @@ describe('Actors', () => {
   });
 
   it('REDUCE: Remove', () => {
-    const actors = reduce({
+    const actors = reduceActors({
       id: {
         name: 'Someone',
         bio: 'Born somewhere on 1944',

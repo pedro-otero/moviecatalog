@@ -31,7 +31,7 @@ export const removeMovie = id => ({
   },
 });
 
-export const reduce = (state = {}, { type, data }) => {
+export const reduceMovies = (state = {}, { type, data }) => {
   switch (type) {
     case ADD_MOVIE: {
       return Object.assign({ ...state }, {
