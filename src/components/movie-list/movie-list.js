@@ -4,6 +4,7 @@ import { Button } from '@material-ui/core/umd/material-ui.production.min';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import Movie from '../movie/movie';
+import { connect } from 'react-redux';
 
 export const MovieList = ({ movies }) => (
   <div>
@@ -31,3 +32,9 @@ title, synopsis, genres, cast,
 MovieList.propTypes = {
   movies: PropTypes.array,
 };
+
+const mapStateToProps = ({ movies }) => ({
+  movies: Object.entries(movies).map(([id, movie]) => Object.assign({}, movie, { id })),
+});
+
+export default connect(mapStateToProps)(MovieList);
