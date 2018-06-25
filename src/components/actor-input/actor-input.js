@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@material-ui/core/es/Card/Card';
-import TextField from '@material-ui/core/es/TextField/TextField';
-import Button from '@material-ui/core/es/Button/Button';
+import uuid from 'uuid/v1';
+import { Button, Card, TextField } from '@material-ui/core/umd/material-ui.production.min';
 
 class ActorInput extends React.Component {
   constructor(props) {
@@ -16,6 +15,16 @@ class ActorInput extends React.Component {
   onNameChange = name => this.setState({ name });
 
   onBioChange = bio => this.setState({ bio });
+
+  save = () => {
+    const { id, name, bio } = this.state;
+    if (this.props.id) {
+      this.props.actions.update(id, name, bio);
+    } else {
+      const newId = uuid();
+      this.props.actions.create(newId, name, bio);
+    }
+  };
 
   render() {
     return <form>
@@ -37,7 +46,8 @@ class ActorInput extends React.Component {
         <br />
         <Button
             variant="contained"
-            color="primary">
+            color="primary"
+            onClick={this.save}>
           Save
         </Button>
       </Card>
@@ -46,7 +56,12 @@ class ActorInput extends React.Component {
 }
 
 ActorInput.propTypes = {
+  actions: PropTypes.shape({
+    create: PropTypes.func,
+    update: PropTypes.func,
+  }),
   bio: PropTypes.string,
+  id: PropTypes.string,
   name: PropTypes.string,
 };
 
