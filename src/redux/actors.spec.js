@@ -36,7 +36,7 @@ describe('Actors', () => {
   });
 
   it('REDUCE: Add', () => {
-    const actors = reduce([], {
+    const actors = reduce({}, {
       type: ADD_ACTOR,
       data: {
         id: 1,
@@ -48,6 +48,28 @@ describe('Actors', () => {
       1: {
         name: 'Someone',
         bio: 'Born somewhere on 1944',
+      },
+    });
+  });
+
+  it('REDUCE: Update', () => {
+    const actors = reduce({
+      1: {
+        name: 'Someone',
+        bio: 'Born somewhere on 1944',
+      },
+    }, {
+      type: UPDATE_ACTOR,
+      data: {
+        id: 1,
+        name: 'Change name',
+        bio: 'Change bio',
+      },
+    });
+    expect(actors).toEqual({
+      1: {
+        name: 'Change name',
+        bio: 'Change bio',
       },
     });
   });
