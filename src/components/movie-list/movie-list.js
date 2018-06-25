@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import Movie from '../movie/movie';
 
-const MovieList = ({ movies }) => (
+export const MovieList = ({ movies }) => (
   <div>
     {movies.map(({
 title, synopsis, genres, cast,
@@ -31,5 +31,3 @@ title, synopsis, genres, cast,
 MovieList.propTypes = {
   movies: PropTypes.array,
 };
-
-export default MovieList;

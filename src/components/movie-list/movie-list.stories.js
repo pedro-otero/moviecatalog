@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies,global-require */
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';
-import MovieList from './movie-list';
 import { MemoryRouter } from 'react-router-dom';
+import { MovieList } from './movie-list';
 
 const movies = [{
   title: '#1',
