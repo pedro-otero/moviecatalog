@@ -2,6 +2,7 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import MovieList from './movie-list';
+import { MemoryRouter } from 'react-router-dom';
 
 const movies = [{
   title: '#1',
@@ -16,6 +17,9 @@ const movies = [{
 }];
 
 storiesOf('Movie List', module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+  ))
   .add('Default', () => (
     <MovieList movies={movies} />
   ));

@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '@material-ui/core/umd/material-ui.production.min';
+import AddIcon from '@material-ui/icons/Add';
+import { Link } from 'react-router-dom';
 import Movie from '../movie/movie';
 
 const MovieList = ({ movies }) => (
@@ -15,6 +18,13 @@ title, synopsis, genres, cast,
       cast={cast}
         />
       ))}
+    <Button
+        variant="fab"
+        color="primary" >
+      <Link to="/movies/add">
+        <AddIcon />
+      </Link>
+    </Button>
   </div>
 );
 
