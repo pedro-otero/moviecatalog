@@ -1,4 +1,4 @@
-import { ADD_ACTOR, addActor, REMOVE_ACTOR, removeActor, UPDATE_ACTOR, updateActor } from './actors';
+import { ADD_ACTOR, addActor, reduce, REMOVE_ACTOR, removeActor, UPDATE_ACTOR, updateActor } from './actors';
 
 describe('Actors', () => {
   it('ACTION: Add', () => {
@@ -31,6 +31,23 @@ describe('Actors', () => {
       type: REMOVE_ACTOR,
       data: {
         id: 1,
+      },
+    });
+  });
+
+  it('REDUCE: Add', () => {
+    const actors = reduce([], {
+      type: ADD_ACTOR,
+      data: {
+        id: 1,
+        name: 'Someone',
+        bio: 'Born somewhere on 1944',
+      },
+    });
+    expect(actors).toEqual({
+      1: {
+        name: 'Someone',
+        bio: 'Born somewhere on 1944',
       },
     });
   });

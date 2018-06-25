@@ -26,3 +26,19 @@ export const removeActor = id => ({
     id,
   },
 });
+
+export const reduce = (state = {}, { type, data }) => {
+  switch (type) {
+    case ADD_ACTOR: {
+      return Object.assign(...state, {
+        [data.id]: {
+          name: data.name,
+          bio: data.bio,
+        },
+      });
+    }
+    default: {
+      return state;
+    }
+  }
+};
