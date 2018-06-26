@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Navigation = props => (
   <div>
-    <Link to="/movies">Movies</Link>
-    <p>Genres</p>
-    <Link to="/actors">Actors</Link>
+    <p><Link to="/movies">Movies</Link></p>
+    <p><Link to="/genres">Genres</Link></p>
+    <p><Link to="/actors">Actors</Link></p>
   </div>
 );
 

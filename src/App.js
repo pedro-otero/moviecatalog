@@ -8,6 +8,7 @@ import MovieList from './components/movie-list/movie-list';
 import ActorList from './components/actor-list/actor-list';
 import ActorInput from './components/actor-input/actor-input';
 import MovieInput from './components/movie-input/movie-input';
+import GenreList from './components/genre-list/genre-list';
 
 class App extends Component {
   render() {
@@ -42,6 +43,9 @@ class App extends Component {
                 exact
                 path="/actors/:id"
                 render={({ match }) => <ActorInput id={match.params.id} />} />
+            <Route
+                path="/genres"
+                component={GenreList} />
           </div>
         </Router>
       </Provider>
