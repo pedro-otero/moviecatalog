@@ -19,33 +19,35 @@ class App extends Component {
             <Route
                 path="/"
                 component={Navigation} />
-            <Route
-                exact
-                path="/movies"
-                component={MovieList} />
-            <Route
-                exact
-                path="/add/movie"
-                component={MovieInput} />
-            <Route
-                exact
-                path="/movies/:id"
-                render={({ match }) => <MovieInput id={match.params.id} />} />
-            <Route
-                exact
-                path="/actors"
-                component={ActorList} />
-            <Route
-                exact
-                path="/add/actor"
-                component={ActorInput} />
-            <Route
-                exact
-                path="/actors/:id"
-                render={({ match }) => <ActorInput id={match.params.id} />} />
-            <Route
-                path="/genres"
-                component={GenreList} />
+            <div>
+              <Route
+                  exact
+                  path="/movies"
+                  component={MovieList} />
+              <Route
+                  exact
+                  path="/add/movie"
+                  component={MovieInput} />
+              <Route
+                  exact
+                  path="/movies/:id"
+                  render={({ match }) => <MovieInput id={match.params.id} />} />
+              <Route
+                  exact
+                  path="/actors"
+                  component={ActorList} />
+              <Route
+                  exact
+                  path="/add/actor"
+                  component={ActorInput} />
+              <Route
+                  exact
+                  path="/actors/:id"
+                  render={({ match }) => <ActorInput id={match.params.id} />} />
+              <Route
+                  path="/genres"
+                  component={GenreList} />
+            </div>
           </div>
         </Router>
       </Provider>
