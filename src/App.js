@@ -18,12 +18,15 @@ class App extends Component {
                 path="/"
                 component={Navigation} />
             <Route
+                exact
                 path="/movies"
                 component={MovieList} />
             <Route
+                exact
                 path="/actors"
                 component={ActorList} />
             <Route
+                exact
                 path="/actors/add"
                 component={ActorInput} />
           </div>
