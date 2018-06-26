@@ -8,6 +8,7 @@ class ActorInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: props.id,
       name: props.name,
       bio: props.bio,
     };
@@ -23,10 +24,11 @@ class ActorInput extends React.Component {
 
   save = () => {
     const { id, name, bio } = this.state;
-    if (this.props.id) {
+    if (id) {
       this.props.actions.update(id, name, bio);
     } else {
       const newId = uuid();
+      this.setState({ id: newId });
       this.props.actions.create(newId, name, bio);
     }
   };
