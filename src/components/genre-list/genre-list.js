@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const GenreList = ({ genres }) => (
+export const GenreList = ({ genres }) => (
   Object.entries(genres).map(([genre, movies]) => (
     <Fragment key={`genre-item-${genre}`}>
       <h4>{genre}</h4>
@@ -14,6 +15,10 @@ const GenreList = ({ genres }) => (
   ))
 );
 
-GenreList.propTypes = {};
+GenreList.propTypes = {
+  genres: PropTypes.object,
+};
 
-export default GenreList;
+const mapStateToProps = ({ movies }) => ({});
+
+export default connect(mapStateToProps)(GenreList);

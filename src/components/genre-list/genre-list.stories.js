@@ -2,7 +2,7 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
-import GenreList from './genre-list';
+import { GenreList } from './genre-list';
 
 const genres = {
   'Sci-Fi': [{
