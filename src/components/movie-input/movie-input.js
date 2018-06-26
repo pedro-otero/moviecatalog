@@ -4,7 +4,7 @@ import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
 import { addMovie, updateMovie } from '../../redux/movies';
 
-class MovieInput extends React.Component {
+export class MovieInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

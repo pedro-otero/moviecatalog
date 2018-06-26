@@ -4,7 +4,7 @@ import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
 import { addActor, updateActor } from '../../redux/actors';
 
-class ActorInput extends React.Component {
+export class ActorInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

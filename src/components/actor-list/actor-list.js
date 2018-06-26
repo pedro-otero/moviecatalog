@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Actor from '../actor/actor';
 
-const ActorList = ({ actors }) => (
+export const ActorList = ({ actors }) => (
   <div>
     {actors.map(({
 id, name, bio,
