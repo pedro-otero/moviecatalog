@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import './App.css';
 import Navigation from './components/navigation/navigation';
 import MovieList from './components/movie-list/movie-list';
+import ActorList from './components/actor-list/actor-list';
 
 class App extends Component {
   render() {
@@ -18,6 +19,9 @@ class App extends Component {
             <Route
                 path="/movies"
                 component={MovieList} />
+            <Route
+                path="/actors"
+                component={ActorList} />
           </div>
         </Router>
       </Provider>

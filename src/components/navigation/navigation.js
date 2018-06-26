@@ -10,7 +10,7 @@ const Navigation = props => (
       variant="persistent">
     <Typography><Link to="/movies">Movies</Link></Typography>
     <Typography>Genres</Typography>
-    <Typography>Actors</Typography>
+    <Typography><Link to="/actors">Actors</Link></Typography>
   </Drawer>
 );
 

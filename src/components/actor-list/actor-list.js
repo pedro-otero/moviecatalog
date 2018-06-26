@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Actor from '../actor/actor';
 
 const ActorList = ({ actors }) => (
@@ -20,4 +21,8 @@ ActorList.propTypes = {
   actors: PropTypes.array,
 };
 
-export default ActorList;
+const mapStateToProps = ({ actors }) => ({
+  actors: Object.entries(actors).map(([id, actor]) => Object.assign({}, actor, { id })),
+});
+
+export default connect(mapStateToProps)(ActorList);
