@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core/umd/material-ui.production.min';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
-import Movie from '../movie/movie';
 import { connect } from 'react-redux';
+import Movie from '../movie/movie';
 
 export const MovieList = ({ movies }) => (
   <div>
