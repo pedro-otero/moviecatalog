@@ -15,38 +15,42 @@ class App extends Component {
     return (
       <Provider store={this.props.store}>
         <Router>
-          <div className="main">
-            <Route
-                path="/"
-                component={Navigation} />
-            <div>
-              <Route
-                  exact
-                  path="/movies"
-                  component={MovieList} />
-              <Route
-                  exact
-                  path="/add/movie"
-                  component={MovieInput} />
-              <Route
-                  exact
-                  path="/movies/:id"
-                  render={({ match }) => <MovieInput id={match.params.id} />} />
-              <Route
-                  exact
-                  path="/actors"
-                  component={ActorList} />
-              <Route
-                  exact
-                  path="/add/actor"
-                  component={ActorInput} />
-              <Route
-                  exact
-                  path="/actors/:id"
-                  render={({ match }) => <ActorInput id={match.params.id} />} />
-              <Route
-                  path="/genres"
-                  component={GenreList} />
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <Route
+                    path="/"
+                    component={Navigation} />
+              </div>
+              <div className="col-8">
+                <Route
+                    exact
+                    path="/movies"
+                    component={MovieList} />
+                <Route
+                    exact
+                    path="/add/movie"
+                    component={MovieInput} />
+                <Route
+                    exact
+                    path="/movies/:id"
+                    render={({ match }) => <MovieInput id={match.params.id} />} />
+                <Route
+                    exact
+                    path="/actors"
+                    component={ActorList} />
+                <Route
+                    exact
+                    path="/add/actor"
+                    component={ActorInput} />
+                <Route
+                    exact
+                    path="/actors/:id"
+                    render={({ match }) => <ActorInput id={match.params.id} />} />
+                <Route
+                    path="/genres"
+                    component={GenreList} />
+              </div>
             </div>
           </div>
         </Router>
