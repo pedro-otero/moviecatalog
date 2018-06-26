@@ -5,21 +5,27 @@ import { Link } from 'react-router-dom';
 import Actor from '../actor/actor';
 
 export const ActorList = ({ actors }) => (
-  <div>
+  <ul className="list-group">
     {actors.map(({
 id, name, bio,
 }) => (
-  <Link
-      key={`list-actor-${name}`}
-      to={`/actors/${id}`}>
-    <Actor
-        name={name}
-        bio={bio}
-        />
-  </Link>
+  <li
+      className="list-group-item"
+      key={`list-actor-${name}`}>
+    <Link to={`/actors/${id}`}>
+      <Actor
+          name={name}
+          bio={bio} />
+    </Link>
+  </li>
       ))}
-    <Link to="/add/actor">Add</Link>
-  </div>
+    <br />
+    <Link
+        to="/add/actor"
+        class="btn btn-primary">
+      Add
+    </Link>
+  </ul>
 );
 
 ActorList.propTypes = {
