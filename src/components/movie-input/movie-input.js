@@ -110,16 +110,20 @@ export class MovieInput extends React.Component {
             onChange={this.onSynopsisChange}
             margin="normal" />
       </div>
-      {this.state.actors.map((actor, i) => (
-        <Fragment key={`actor-${actor.name}`}>
-          <label htmlFor={`actor-check-${actor.id}`}>{actor.name}</label>
-          <input
-              id={`actor-check-${actor.id}`}
-              type="checkbox"
-              checked={actor.selected}
-              onClick={this.selectActor(i)} />
-        </Fragment>
+      <div className="form-group">
+        <p>Actors</p>
+        {this.state.actors.map((actor, i) => (
+          <Fragment key={`actor-${actor.name}`}>
+            <button
+                type="button"
+                onClick={this.selectActor(i)}
+                className={`btn ${actor.selected ? 'btn-success' : 'btn-light'}`}>
+              {actor.name}
+            </button>
+          </Fragment>
         ))}
+        <small className="form-text text-muted">Click on actors to select them</small>
+      </div>
       <br />
       <button
           type="button"
