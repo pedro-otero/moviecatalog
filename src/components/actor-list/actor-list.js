@@ -17,13 +17,13 @@ name, bio,
       bio={bio}
         />
       ))}
-    <Button
-        variant="fab"
-        color="primary" >
-      <Link to="/actors/add">
+    <Link to="/actors/add">
+      <Button
+          variant="fab"
+          color="primary" >
         <AddIcon />
-      </Link>
-    </Button>
+      </Button>
+    </Link>
   </div>
 );
 
