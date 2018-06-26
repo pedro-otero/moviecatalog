@@ -28,8 +28,11 @@ MovieList.propTypes = {
   movies: PropTypes.array,
 };
 
-const mapStateToProps = ({ movies }) => ({
-  movies: Object.entries(movies).map(([id, movie]) => Object.assign({}, movie, { id })),
+const mapStateToProps = ({ movies, actors }) => ({
+  movies: Object.entries(movies)
+    .map(([movieId, movie]) => Object.assign({ id: movieId }, movie, {
+      cast: movie.cast.map(actorId => actors[actorId].name),
+    })),
 });
 
 export default connect(mapStateToProps)(MovieList);
