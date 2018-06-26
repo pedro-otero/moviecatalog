@@ -82,9 +82,12 @@ export class MovieInput extends React.Component {
             onChange={this.onTitleChange} />
       </div>
       <div className="form-group">
+        <label htmlFor="genre">Genres</label>
+        <br />
         {this.state.genres.map(genre => (
           <span
               key={`genre-${genre}`}
+              className="badge badge-pill badge-info"
               onClick={this.deleteGenre(genre)}>
             {`"${genre}"`}
           </span>
