@@ -14,10 +14,6 @@ class ActorInput extends React.Component {
     };
   }
 
-  componentWillUnmount() {
-    this.save();
-  }
-
   onNameChange = e => this.setState({ name: e.target.value });
 
   onBioChange = e => this.setState({ bio: e.target.value });

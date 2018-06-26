@@ -23,10 +23,6 @@ class MovieInput extends React.Component {
     };
   }
 
-  componentWillUnmount() {
-    this.save();
-  }
-
   onTitleChange = e => this.setState({ title: e.target.value });
 
   onSynopsisChange = e => this.setState({ synopsis: e.target.value });
