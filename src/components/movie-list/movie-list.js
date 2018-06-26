@@ -7,15 +7,18 @@ import Movie from '../movie/movie';
 export const MovieList = ({ movies }) => (
   <div>
     {movies.map(({
-title, synopsis, genres, cast,
+id, title, synopsis, genres, cast,
 }) => (
-  <Movie
-      key={`list-movie-${title}`}
-      title={title}
-      synopsis={synopsis}
-      genres={genres}
-      cast={cast}
+  <Link
+      to={`/movies/${id}`}
+      key={`list-movie-${title}`}>
+    <Movie
+        title={title}
+        synopsis={synopsis}
+        genres={genres}
+        cast={cast}
         />
+  </Link>
       ))}
     <Link to="/add/movie">Add</Link>
   </div>
