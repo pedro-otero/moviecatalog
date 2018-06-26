@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
-import { addActor } from '../../redux/actors';
+import { addActor, updateActor } from '../../redux/actors';
 
 class ActorInput extends React.Component {
   constructor(props) {
@@ -67,11 +67,17 @@ ActorInput.propTypes = {
   name: PropTypes.string,
 };
 
-const mapStateToProps = ({}) => ({});
+const mapStateToProps = ({ actors }, { id }) => {
+  if (id) {
+    return { ...actors[id] };
+  }
+  return { id };
+};
 
 const mapDispatchToProps = dispatch => ({
   actions: {
     create: (id, name, bio) => dispatch(addActor(id, name, bio)),
+    update: (id, name, bio) => dispatch(updateActor(id, name, bio)),
   },
 });
 

@@ -18,7 +18,7 @@ id, name, bio,
         />
   </Link>
       ))}
-    <Link to="/actors/add">Add</Link>
+    <Link to="/add/actor">Add</Link>
   </div>
 );
 

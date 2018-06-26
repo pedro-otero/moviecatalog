@@ -27,8 +27,12 @@ class App extends Component {
                 component={ActorList} />
             <Route
                 exact
-                path="/actors/add"
+                path="/add/actor"
                 component={ActorInput} />
+            <Route
+                exact
+                path="/actors/:id"
+                render={({ match }) => <ActorInput id={match.params.id} />} />
           </div>
         </Router>
       </Provider>
