@@ -72,34 +72,41 @@ export class MovieInput extends React.Component {
   render() {
     const { enterGenre } = this;
     return <form>
-      <label htmlFor="title">Title</label>
-      <input
-          id="title"
-          type="text"
-          value={this.state.title}
-          onChange={this.onTitleChange} />
-      <br />
-      {this.state.genres.map(genre => (
-        <span
-            key={`genre-${genre}`}
-            onClick={this.deleteGenre(genre)}>
-          {`"${genre}"`}
-        </span>
+      <div className="form-group">
+        <label htmlFor="title">Title</label>
+        <input
+            id="title"
+            className="form-control"
+            type="text"
+            value={this.state.title}
+            onChange={this.onTitleChange} />
+      </div>
+      <div className="form-group">
+        {this.state.genres.map(genre => (
+          <span
+              key={`genre-${genre}`}
+              onClick={this.deleteGenre(genre)}>
+            {`"${genre}"`}
+          </span>
         ))}
-      <input
-          id="genre"
-          value={this.state.genre}
-          onChange={this.onGenreChange}
-          onKeyDown={enterGenre} />
-      <br />
-      <label htmlFor="synopsis">Synopsis</label>
-      <input
-          type="text"
-          id="synopsis"
-          value={this.state.synopsis}
-          onChange={this.onSynopsisChange}
-          margin="normal" />
-      <br />
+        <input
+            id="genre"
+            className="form-control"
+            value={this.state.genre}
+            onChange={this.onGenreChange}
+            onKeyDown={enterGenre} />
+        <small className="form-text text-muted">Type genre and press Enter</small>
+      </div>
+      <div className="form-group">
+        <label htmlFor="synopsis">Synopsis</label>
+        <input
+            type="text"
+            id="synopsis"
+            className="form-control"
+            value={this.state.synopsis}
+            onChange={this.onSynopsisChange}
+            margin="normal" />
+      </div>
       {this.state.actors.map((actor, i) => (
         <Fragment key={`actor-${actor.name}`}>
           <label htmlFor={`actor-check-${actor.id}`}>{actor.name}</label>
@@ -113,6 +120,7 @@ export class MovieInput extends React.Component {
       <br />
       <button
           type="button"
+          className="btn btn-primary"
           onClick={this.save}>
         Save
       </button>
