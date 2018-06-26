@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
-import { Button, Card, TextField } from '@material-ui/core/umd/material-ui.production.min';
 import { connect } from 'react-redux';
 import { addActor } from '../../redux/actors';
 
@@ -34,29 +33,26 @@ class ActorInput extends React.Component {
 
   render() {
     return <form>
-      <Card>
-        <TextField
-            id="name"
-            label="Name"
-            value={this.state.name}
-            onChange={this.onNameChange}
-            margin="normal" />
-        <br />
-        <TextField
-            id="bio"
-            label="Bio"
-            value={this.state.bio}
-            onChange={this.onBioChange}
-            margin="normal"
-            multiline />
-        <br />
-        <Button
-            variant="contained"
-            color="primary"
-            onClick={this.save}>
+      <label htmlFor="name">Name</label>
+      <input
+          id="name"
+          type="text"
+          value={this.state.name}
+          onChange={this.onNameChange} />
+      <br />
+      <label htmlFor="bio">Bio</label>
+      <input
+          id="bio"
+          type="text"
+          value={this.state.bio}
+          onChange={this.onBioChange}
+          margin="normal" />
+      <br />
+      <button
+          type="button"
+          onClick={this.save}>
           Save
-        </Button>
-      </Card>
+        </button>
     </form>;
   }
 }

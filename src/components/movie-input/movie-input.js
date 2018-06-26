@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
-import { Button, Card, Chip, TextField } from '@material-ui/core/umd/material-ui.production.min';
 
 class MovieInput extends React.Component {
   constructor(props) {
@@ -70,55 +69,50 @@ class MovieInput extends React.Component {
   render() {
     const { enterGenre } = this;
     return <form>
-      <Card>
-        <TextField
-            id="title"
-            label="Title"
-            value={this.state.title}
-            onChange={this.onTitleChange}
-            margin="normal" />
-        <br />
-        {this.state.genres.map(genre => (
-          <Chip
-              key={`genre-${genre}`}
-              label={genre}
-              onDelete={this.deleteGenre(genre)} />
+      <label htmlFor="title">Title</label>
+      <input
+          id="title"
+          type="text"
+          value={this.state.title}
+          onChange={this.onTitleChange} />
+      <br />
+      {this.state.genres.map(genre => (
+        <span
+            key={`genre-${genre}`}
+            onClick={this.deleteGenre(genre)}>
+          {`"${genre}"`}
+        </span>
         ))}
-        <TextField
-            id="genre"
-            label="Add genre"
-            value={this.state.genre}
-            onChange={this.onGenreChange}
-            inputProps={{
-              onKeyDown: enterGenre,
-            }}
-            margin="normal" />
-        <br />
-        <TextField
-            id="synopsis"
-            label="Synopsis"
-            value={this.state.synopsis}
-            onChange={this.onSynopsisChange}
-            margin="normal"
-            multiline />
-        <br />
-        {this.state.actors.map((actor, i) => (
-          <Button
-              key={`actor-${actor.name}`}
-              variant="contained"
-              color={actor.selected ? 'secondary' : 'default'}
-              onClick={this.selectActor(i)}>
-            {actor.name}
-          </Button>
+      <input
+          id="genre"
+          value={this.state.genre}
+          onChange={this.onGenreChange}
+          onKeyDown={enterGenre} />
+      <br />
+      <label htmlFor="synopsis">Synopsis</label>
+      <input
+          type="text"
+          id="synopsis"
+          value={this.state.synopsis}
+          onChange={this.onSynopsisChange}
+          margin="normal" />
+      <br />
+      {this.state.actors.map((actor, i) => (
+        <Fragment key={`actor-${actor.name}`}>
+          <label htmlFor={`actor-check-${actor.id}`}>{actor.name}</label>
+          <input
+              id={`actor-check-${actor.id}`}
+              type="checkbox"
+              checked={actor.selected}
+              onClick={this.selectActor(i)} />
+        </Fragment>
         ))}
-        <br />
-        <Button
-            variant="contained"
-            color="primary"
-            onClick={this.save}>
-          Save
-        </Button>
-      </Card>
+      <br />
+      <button
+          type="button"
+          onClick={this.save}>
+        Save
+      </button>
     </form>;
   }
 }

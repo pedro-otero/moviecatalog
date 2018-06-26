@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import AddIcon from '@material-ui/icons/Add';
-import { Button } from '@material-ui/core/umd/material-ui.production.min';
 import Actor from '../actor/actor';
 
 const ActorList = ({ actors }) => (
@@ -20,13 +18,7 @@ id, name, bio,
         />
   </Link>
       ))}
-    <Link to="/actors/add">
-      <Button
-          variant="fab"
-          color="primary" >
-        <AddIcon />
-      </Button>
-    </Link>
+    <Link to="/actors/add">Add</Link>
   </div>
 );
 

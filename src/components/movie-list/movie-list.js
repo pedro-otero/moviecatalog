@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '@material-ui/core/umd/material-ui.production.min';
-import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Movie from '../movie/movie';
@@ -19,13 +17,7 @@ title, synopsis, genres, cast,
       cast={cast}
         />
       ))}
-    <Link to="/movies/add">
-      <Button
-          variant="fab"
-          color="primary" >
-        <AddIcon />
-      </Button>
-    </Link>
+    <Link to="/movies/add">Add</Link>
   </div>
 );
 

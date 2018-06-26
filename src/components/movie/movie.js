@@ -1,25 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@material-ui/core/es/Card/Card';
-import Typography from '@material-ui/core/es/Typography/Typography';
-import Chip from '@material-ui/core/es/Chip/Chip';
 import Title from '../title/title';
 
 const Movie = ({
   title, synopsis, genres, cast,
 }) => (
-  <Card>
+  <div>
     <Title value={title} />
     {genres.map(genre => (
-      <Chip
-          key={`genre-${genre}`}
-          label={genre} />))}
-    <Typography gutterBottom>{synopsis}</Typography>
-    <Typography gutterBottom>
+      <span
+          key={`genre-${genre}`}>
+        {`"${genre}"`}
+      </span>))}
+    <p>{synopsis}</p>
+    <p>
       <strong>Starring: </strong>
       {cast.join(', ')}
-    </Typography>
-  </Card>
+    </p>
+  </div>
 );
 
 Movie.propTypes = {
