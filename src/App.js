@@ -7,6 +7,7 @@ import Navigation from './components/navigation/navigation';
 import MovieList from './components/movie-list/movie-list';
 import ActorList from './components/actor-list/actor-list';
 import ActorInput from './components/actor-input/actor-input';
+import MovieInput from './components/movie-input/movie-input';
 
 class App extends Component {
   render() {
@@ -21,6 +22,14 @@ class App extends Component {
                 exact
                 path="/movies"
                 component={MovieList} />
+            <Route
+                exact
+                path="/add/movie"
+                component={MovieInput} />
+            <Route
+                exact
+                path="/movies/:id"
+                render={({ match }) => <MovieInput id={match.params.id} />} />
             <Route
                 exact
                 path="/actors"

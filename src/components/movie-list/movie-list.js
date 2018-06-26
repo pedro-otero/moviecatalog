@@ -17,7 +17,7 @@ title, synopsis, genres, cast,
       cast={cast}
         />
       ))}
-    <Link to="/movies/add">Add</Link>
+    <Link to="/add/movie">Add</Link>
   </div>
 );
 

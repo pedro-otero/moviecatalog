@@ -1,19 +1,25 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
+import { connect } from 'react-redux';
+import { addMovie, updateMovie } from '../../redux/movies';
 
 class MovieInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: props.id,
       title: props.title,
       synopsis: props.synopsis,
-      genres: props.genres,
+      genres: props.genres || [],
       genre: '',
       actors: Object
         .entries(props.actors)
         .map(([key, actor]) =>
-          Object.assign({}, actor, { selected: false, id: key })),
+          Object.assign({}, actor, {
+            id: key,
+            selected: (props.cast || []).includes(key),
+          })),
     };
   }
 
@@ -58,10 +64,11 @@ class MovieInput extends React.Component {
     const selectedActors = actors
       .filter(actor => actor.selected)
       .map(actor => actor.id);
-    if (this.props.id) {
+    if (id) {
       this.props.actions.update(id, title, synopsis, genres, selectedActors);
     } else {
       const newId = uuid();
+      this.setState({ id: newId });
       this.props.actions.create(newId, title, synopsis, genres, selectedActors);
     }
   };
@@ -123,10 +130,25 @@ MovieInput.propTypes = {
     update: PropTypes.func,
   }),
   actors: PropTypes.object,
+  cast: PropTypes.array,
   genres: PropTypes.array,
   id: PropTypes.string,
   synopsis: PropTypes.string,
   title: PropTypes.string,
 };
 
-export default MovieInput;
+const mapStateToProps = ({ movies, actors }, { id }) => {
+  if (id) {
+    return { ...movies[id], actors };
+  }
+  return { id, actors };
+};
+
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    create: (id, title, synopsis, genres, actors) => dispatch(addMovie(id, title, synopsis, genres, actors)),
+    update: (id, title, synopsis, genres, actors) => dispatch(updateMovie(id, title, synopsis, genres, actors)),
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieInput);
