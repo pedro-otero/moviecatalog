@@ -31,23 +31,28 @@ export class ActorInput extends React.Component {
 
   render() {
     return <form>
-      <label htmlFor="name">Name</label>
-      <input
-          id="name"
-          type="text"
-          value={this.state.name}
-          onChange={this.onNameChange} />
-      <br />
-      <label htmlFor="bio">Bio</label>
-      <input
-          id="bio"
-          type="text"
-          value={this.state.bio}
-          onChange={this.onBioChange}
-          margin="normal" />
-      <br />
+      <div className="form-group">
+        <label htmlFor="name">Name</label>
+        <input
+            id="name"
+            className="form-control"
+            type="text"
+            value={this.state.name}
+            onChange={this.onNameChange} />
+      </div>
+      <div className="form-group">
+        <label htmlFor="bio">Bio</label>
+        <input
+            id="bio"
+            className="form-control"
+            type="text"
+            value={this.state.bio}
+            onChange={this.onBioChange}
+            margin="normal" />
+      </div>
       <button
           type="button"
+          className="btn btn-primary"
           onClick={this.save}>
           Save
         </button>
