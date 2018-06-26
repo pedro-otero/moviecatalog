@@ -9,13 +9,16 @@ import Actor from '../actor/actor';
 const ActorList = ({ actors }) => (
   <div>
     {actors.map(({
-name, bio,
+id, name, bio,
 }) => (
-  <Actor
+  <Link
       key={`list-actor-${name}`}
-      name={name}
-      bio={bio}
+      to={`/actors/${id}`}>
+    <Actor
+        name={name}
+        bio={bio}
         />
+  </Link>
       ))}
     <Link to="/actors/add">
       <Button
