@@ -2,25 +2,25 @@ export const ADD_MOVIE = 'ADD_MOVIE';
 export const UPDATE_MOVIE = 'UPDATE_MOVIE';
 export const REMOVE_MOVIE = 'REMOVE_MOVIE';
 
-export const addMovie = (id, title, synopsis, genres, actors) => ({
+export const addMovie = (id, title, synopsis, genres, cast) => ({
   type: ADD_MOVIE,
   data: {
     id,
     title,
     synopsis,
     genres,
-    actors,
+    cast,
   },
 });
 
-export const updateMovie = (id, title, synopsis, genres, actors) => ({
+export const updateMovie = (id, title, synopsis, genres, cast) => ({
   type: UPDATE_MOVIE,
   data: {
     id,
     title,
     synopsis,
     genres,
-    actors,
+    cast,
   },
 });
 
@@ -39,7 +39,7 @@ export const reduceMovies = (state = {}, { type, data }) => {
           title: data.title,
           synopsis: data.synopsis,
           genres: data.genres,
-          actors: data.actors,
+          cast: data.cast,
         },
       });
     }
@@ -49,7 +49,7 @@ export const reduceMovies = (state = {}, { type, data }) => {
           title: data.title,
           synopsis: data.synopsis,
           genres: data.genres,
-          actors: data.actors,
+          cast: data.cast,
         },
       });
     }

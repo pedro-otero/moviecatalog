@@ -10,7 +10,7 @@ describe('Movies', () => {
         title: 'Title',
         synopsis: 'Synopsis',
         genres: ['Genre 1', 'Genre 2'],
-        actors: ['actorId1', 'actorId2'],
+        cast: ['actorId1', 'actorId2'],
       },
     });
   });
@@ -24,7 +24,7 @@ describe('Movies', () => {
         title: 'Title',
         synopsis: 'Synopsis',
         genres: ['Genre 1', 'Genre 2'],
-        actors: ['actorId1', 'actorId2'],
+        cast: ['actorId1', 'actorId2'],
       },
     });
   });
@@ -47,7 +47,7 @@ describe('Movies', () => {
         title: 'Title',
         synopsis: 'Synopsis',
         genres: ['Genre 1', 'Genre 2'],
-        actors: ['actorId1', 'actorId2'],
+        cast: ['actorId1', 'actorId2'],
       },
     });
     expect(movies).toEqual({
@@ -55,7 +55,7 @@ describe('Movies', () => {
         title: 'Title',
         synopsis: 'Synopsis',
         genres: ['Genre 1', 'Genre 2'],
-        actors: ['actorId1', 'actorId2'],
+        cast: ['actorId1', 'actorId2'],
       },
     });
   });
@@ -66,7 +66,7 @@ describe('Movies', () => {
         title: 'Title',
         synopsis: 'Synopsis',
         genres: ['Genre 1', 'Genre 2'],
-        actors: ['actorId1', 'actorId2'],
+        cast: ['actorId1', 'actorId2'],
       },
     }, {
       type: UPDATE_MOVIE,
@@ -75,7 +75,7 @@ describe('Movies', () => {
         title: 'Title changed',
         synopsis: 'Synopsis changed',
         genres: ['Genre 3'],
-        actors: ['actorId3'],
+        cast: ['actorId3'],
       },
     });
     expect(movies).toEqual({
@@ -83,7 +83,7 @@ describe('Movies', () => {
         title: 'Title changed',
         synopsis: 'Synopsis changed',
         genres: ['Genre 3'],
-        actors: ['actorId3'],
+        cast: ['actorId3'],
       },
     });
   });
@@ -94,7 +94,7 @@ describe('Movies', () => {
         title: 'Title changed',
         synopsis: 'Synopsis changed',
         genres: ['Genre 3'],
-        actors: ['actorId3'],
+        cast: ['actorId3'],
       },
     }, {
       type: REMOVE_MOVIE,
