@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { Button, Card, TextField } from '@material-ui/core/umd/material-ui.production.min';
+import { connect } from 'react-redux';
+import { addActor } from '../../redux/actors';
 
 class ActorInput extends React.Component {
   constructor(props) {
@@ -69,4 +71,12 @@ ActorInput.propTypes = {
   name: PropTypes.string,
 };
 
-export default ActorInput;
+const mapStateToProps = ({}) => ({});
+
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    create: (id, name, bio) => dispatch(addActor(id, name, bio)),
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ActorInput);

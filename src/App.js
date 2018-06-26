@@ -6,6 +6,7 @@ import './App.css';
 import Navigation from './components/navigation/navigation';
 import MovieList from './components/movie-list/movie-list';
 import ActorList from './components/actor-list/actor-list';
+import ActorInput from './components/actor-input/actor-input';
 
 class App extends Component {
   render() {
@@ -22,6 +23,9 @@ class App extends Component {
             <Route
                 path="/actors"
                 component={ActorList} />
+            <Route
+                path="/actors/add"
+                component={ActorInput} />
           </div>
         </Router>
       </Provider>
