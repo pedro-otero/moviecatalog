@@ -19,13 +19,13 @@ title, synopsis, genres, cast,
       cast={cast}
         />
       ))}
-    <Button
-        variant="fab"
-        color="primary" >
-      <Link to="/movies/add">
+    <Link to="/movies/add">
+      <Button
+          variant="fab"
+          color="primary" >
         <AddIcon />
-      </Link>
-    </Button>
+      </Button>
+    </Link>
   </div>
 );
 
