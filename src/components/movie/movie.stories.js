@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies,global-require */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Movie from './movie';
+import { Movie } from './movie';
 
 storiesOf('Movie', module)
   .add('Full', () => (

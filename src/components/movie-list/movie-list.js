@@ -10,7 +10,7 @@ import AddButton from '../add-button/add-button';
 export const MovieList = ({ movies, remove }) => (
   <ul className="list-group">
     {movies.map(({
-id, title, synopsis, genres, cast,
+id, title,
 }) => (
   <li
       className="list-group-item"
@@ -18,12 +18,7 @@ id, title, synopsis, genres, cast,
     <Link
         to={`/movies/${id}`}
         key={`list-movie-${title}`}>
-      <Movie
-          title={title}
-          synopsis={synopsis}
-          genres={genres}
-          cast={cast}
-        />
+      {title}
     </Link>
     <DeleteButton action={() => remove(id)} />
   </li>
