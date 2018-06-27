@@ -28,6 +28,7 @@ class SearchInput extends React.Component {
             className="form-control"
             type="text"
             value={filter}
+            placeholder="Search..."
             onChange={this.onFilterChange}
             onKeyDown={this.enterSearch} />
       </div>
