@@ -1,5 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Redirect, withRouter } from 'react-router-dom';
 
 class SearchInput extends React.Component {
   state = {};
@@ -8,20 +9,32 @@ class SearchInput extends React.Component {
     this.setState({ filter: e.target.value });
   };
 
+  enterSearch = (e) => {
+    if (e.keyCode == 13) {
+      e.preventDefault();
+      this.setState({ filter: '' });
+      this.props.history.push(`/search?filter=${this.state.filter}`);
+    }
+  };
+
   render() {
     const { filter } = this.state;
     return <form>
-      {filter && <Redirect to={`/search?filter=${filter}`} />}
       <div className="form-group">
         <input
             id="search-filter"
             className="form-control"
             type="text"
             value={filter}
-            onChange={this.onFilterChange} />
+            onChange={this.onFilterChange}
+            onKeyDown={this.enterSearch} />
       </div>
     </form>;
   }
 }
 
-export default SearchInput;
+SearchInput.propTypes = {
+  history: PropTypes.object,
+};
+
+export default withRouter(SearchInput);
