@@ -4,6 +4,7 @@ import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
 import { addMovie, updateMovie } from '../../redux/movies';
 import Genre from '../genre/genre';
+import SaveButton from "../save-button/save-button";
 
 export class MovieInput extends React.Component {
   constructor(props) {
@@ -122,12 +123,7 @@ export class MovieInput extends React.Component {
         <small className="form-text text-muted">Click on actors to select them</small>
       </div>
       <br />
-      <button
-          type="button"
-          className="btn btn-primary"
-          onClick={this.save}>
-        Save
-      </button>
+      <SaveButton onClick={this.save} />
     </form>;
   }
 }

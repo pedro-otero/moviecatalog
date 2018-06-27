@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
 import { addActor, updateActor } from '../../redux/actors';
+import SaveButton from '../save-button/save-button';
 
 export class ActorInput extends React.Component {
   constructor(props) {
@@ -48,12 +49,7 @@ export class ActorInput extends React.Component {
             value={this.state.bio}
             onChange={this.onBioChange} />
       </div>
-      <button
-          type="button"
-          className="btn btn-primary"
-          onClick={this.save}>
-          Save
-        </button>
+      <SaveButton onClick={this.save} />
     </form>;
   }
 }
