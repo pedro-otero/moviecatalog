@@ -70,7 +70,11 @@ export class MovieInput extends React.Component {
   };
 
   render() {
-    const { enterGenre } = this;
+    const { enterGenre, state } = this;
+    const {
+      title, synopsis, genre, genres, actors,
+    } = state;
+
     return <form>
       <div className="form-group">
         <label htmlFor="title">Title</label>
@@ -78,22 +82,22 @@ export class MovieInput extends React.Component {
             id="title"
             className="form-control"
             type="text"
-            value={this.state.title}
+            value={title}
             onChange={this.onChange('title')} />
       </div>
       <div className="form-group">
         <label htmlFor="genre">Genres</label>
         <br />
-        {this.state.genres.map(genre => (
+        {genres.map(genreItem => (
           <Genre
-              key={`genre-${genre}`}
-              name={genre}
-              onClick={this.deleteGenre(genre)} />
+              key={`genre-${genreItem}`}
+              name={genreItem}
+              onClick={this.deleteGenre(genreItem)} />
         ))}
         <input
             id="genre"
             className="form-control"
-            value={this.state.genre}
+            value={genre}
             onChange={this.onChange('genre')}
             onKeyDown={enterGenre} />
         <small className="form-text text-muted">Type genre and press Enter</small>
@@ -103,12 +107,12 @@ export class MovieInput extends React.Component {
         <textarea
             id="synopsis"
             className="form-control"
-            value={this.state.synopsis}
+            value={synopsis}
             onChange={this.onChange('synopsis')} />
       </div>
       <p>Actors</p>
-      {this.state.actors.length > 0 && <div className="form-group">
-        {this.state.actors.map((actor, i) => (
+      {actors.length > 0 && <div className="form-group">
+        {actors.map((actor, i) => (
           <Fragment key={`actor-${actor.name}`}>
             <button
                 type="button"
@@ -120,7 +124,7 @@ export class MovieInput extends React.Component {
         ))}
         <small className="form-text text-muted">Click on actors to select them</small>
       </div>}
-      {this.state.actors.length === 0 &&
+      {actors.length === 0 &&
         <div>
           <small className="form-text text-muted">There are no actors that can be added. </small>
           <Link to="/add/actor">Create one</Link>
