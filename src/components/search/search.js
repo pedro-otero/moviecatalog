@@ -12,9 +12,9 @@ export class Search extends React.Component {
       bySynopsis: movies.filter(({ synopsis = '' }) =>
         synopsis.toUpperCase().includes(FILTER)),
       byCast: movies.filter(({ cast = [] }) =>
-        cast.map(c => c.toUpperCase()).includes(FILTER)),
+        cast.map(c => c.toUpperCase()).find(c => c.includes(FILTER))),
       byGenre: movies.filter(({ genres = [] }) =>
-        genres.map(g => g.toUpperCase()).includes(FILTER)),
+        genres.map(g => g.toUpperCase()).find(c => c.includes(FILTER))),
     };
   }
 
