@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Redirect, withRouter } from 'react-router-dom';
 
 class SearchInput extends React.Component {
-  state = {};
+  state = {
+    filter: '',
+  };
 
   onFilterChange = (e) => {
     this.setState({ filter: e.target.value });

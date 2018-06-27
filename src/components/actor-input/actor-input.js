@@ -64,6 +64,11 @@ ActorInput.propTypes = {
   name: PropTypes.string,
 };
 
+ActorInput.defaultProps = {
+  bio: '',
+  name: '',
+};
+
 const mapStateToProps = ({ actors }, { id }) => {
   if (id) {
     return { ...actors[id] };

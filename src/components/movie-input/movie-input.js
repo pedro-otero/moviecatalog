@@ -4,7 +4,7 @@ import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
 import { addMovie, updateMovie } from '../../redux/movies';
 import Genre from '../genre/genre';
-import SaveButton from "../save-button/save-button";
+import SaveButton from '../save-button/save-button';
 
 export class MovieInput extends React.Component {
   constructor(props) {
@@ -13,14 +13,14 @@ export class MovieInput extends React.Component {
       id: props.id,
       title: props.title,
       synopsis: props.synopsis,
-      genres: props.genres || [],
+      genres: props.genres,
       genre: '',
       actors: Object
         .entries(props.actors)
         .map(([key, actor]) =>
           Object.assign({}, actor, {
             id: key,
-            selected: (props.cast || []).includes(key),
+            selected: (props.cast).includes(key),
           })),
     };
   }
@@ -139,6 +139,14 @@ MovieInput.propTypes = {
   id: PropTypes.string,
   synopsis: PropTypes.string,
   title: PropTypes.string,
+};
+
+MovieInput.defaultProps = {
+  actors: {},
+  cast: [],
+  genres: [],
+  synopsis: '',
+  title: '',
 };
 
 const mapStateToProps = ({ movies, actors }, { id }) => {
