@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Title from '../title/title';
 import Genre from '../genre/genre';
-import Truncate from '../truncate/truncate';
 import EditButton from '../edit-button/edit-button';
 
 const Movie = ({
@@ -15,7 +14,9 @@ const Movie = ({
       <Genre
           key={`genre-${genre}`}
           name={genre} />))}
-    <Truncate value={synopsis} />
+    <br />
+    <br />
+    <p>{synopsis}</p>
     <p>
       <strong>Starring: </strong>
       {cast.join(', ')}
