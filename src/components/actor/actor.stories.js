@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies,global-require */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Actor from './actor';
+import { Actor } from './actor';
 
 storiesOf('Actor', module)
   .add('Default', () => (

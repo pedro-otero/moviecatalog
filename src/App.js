@@ -11,6 +11,7 @@ import MovieInput from './components/movie-input/movie-input';
 import GenreList from './components/genre-list/genre-list';
 import SearchInput from './components/search-input/search-input';
 import Search from './components/search/search';
+import Actor from "./components/actor/actor";
 
 class App extends Component {
   render() {
@@ -52,6 +53,10 @@ class App extends Component {
                 <Route
                     exact
                     path="/actors/:id"
+                    render={({ match }) => <Actor id={match.params.id} />} />
+                <Route
+                    exact
+                    path="/edit/actor/:id"
                     render={({ match }) => <ActorInput id={match.params.id} />} />
                 <Route
                     path="/genres"

@@ -15,11 +15,7 @@ id, name, bio,
   <li
       className="list-group-item"
       key={`list-actor-${name}`}>
-    <Link to={`/actors/${id}`}>
-      <Actor
-          name={name}
-          bio={bio} />
-    </Link>
+    <Link to={`/actors/${id}`}>{name}</Link>
     <DeleteButton action={() => remove(id)} />
   </li>
       ))}
