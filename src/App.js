@@ -10,7 +10,7 @@ import ActorInput from './components/actor-input/actor-input';
 import MovieInput from './components/movie-input/movie-input';
 import GenreList from './components/genre-list/genre-list';
 import SearchInput from './components/search-input/search-input';
-import { Search } from './components/search/search';
+import Search from './components/search/search';
 
 class App extends Component {
   render() {
@@ -57,8 +57,8 @@ class App extends Component {
                     path="/genres"
                     component={GenreList} />
                 <Route
-                    path="/search?filter=:searchFilter"
-                    render={({ match }) => <Search filter={match.params.searchFilter} />} />
+                    path="/search"
+                    render={({ location }) => <Search filter={new URLSearchParams(location.search).get('filter')} />} />
               </div>
             </div>
           </div>
