@@ -1,19 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Title from '../title/title';
 import Truncate from '../truncate/truncate';
+import EditButton from '../edit-button/edit-button';
 
 export const Actor = ({ id, name, bio }) => (
   <div>
     <Title value={name} />
     <Truncate value={bio} />
-    <Link
-        to={`/edit/actor/${id}`}
-        className="btn btn-primary">
-      Edit
-    </Link>
+    <EditButton path={`/edit/actor/${id}`} />
   </div>
 );
 

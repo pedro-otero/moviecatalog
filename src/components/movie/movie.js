@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Title from '../title/title';
 import Genre from '../genre/genre';
 import Truncate from '../truncate/truncate';
+import EditButton from '../edit-button/edit-button';
 
 const Movie = ({
   id, title, synopsis, genres, cast,
@@ -20,11 +20,7 @@ const Movie = ({
       <strong>Starring: </strong>
       {cast.join(', ')}
     </p>
-    <Link
-        to={`/edit/movie/${id}`}
-        className="btn btn-primary">
-      Edit
-    </Link>
+    <EditButton path={`/edit/movie/${id}`} />
   </div>
 );
 
