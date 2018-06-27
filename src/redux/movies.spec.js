@@ -1,4 +1,5 @@
 import { ADD_MOVIE, addMovie, reduceMovies, REMOVE_MOVIE, removeMovie, UPDATE_MOVIE, updateMovie } from './movies';
+import { REMOVE_ACTOR } from './actors';
 
 describe('Movies', () => {
   it('ACTION: Add', () => {
@@ -88,7 +89,7 @@ describe('Movies', () => {
     });
   });
 
-  it('REDUCE: Remove', () => {
+  it('REDUCE: Remove movie', () => {
     const movies = reduceMovies({
       id: {
         title: 'Title changed',
@@ -103,5 +104,29 @@ describe('Movies', () => {
       },
     });
     expect(movies).toEqual({});
+  });
+
+  it('REDUCE: Remove actor', () => {
+    const movies = reduceMovies({
+      id: {
+        title: 'Title changed',
+        synopsis: 'Synopsis changed',
+        genres: ['Genre 3'],
+        cast: ['actorId3'],
+      },
+    }, {
+      type: REMOVE_ACTOR,
+      data: {
+        id: 'actorId3',
+      },
+    });
+    expect(movies).toEqual({
+      id: {
+        title: 'Title changed',
+        synopsis: 'Synopsis changed',
+        genres: ['Genre 3'],
+        cast: [],
+      },
+    });
   });
 });

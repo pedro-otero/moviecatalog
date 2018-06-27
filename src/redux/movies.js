@@ -1,3 +1,5 @@
+import { REMOVE_ACTOR } from './actors';
+
 export const ADD_MOVIE = 'ADD_MOVIE';
 export const UPDATE_MOVIE = 'UPDATE_MOVIE';
 export const REMOVE_MOVIE = 'REMOVE_MOVIE';
@@ -56,6 +58,15 @@ export const reduceMovies = (state = {}, { type, data }) => {
     case REMOVE_MOVIE: {
       const { [data.id]: value, ...theRest } = state;
       return theRest;
+    }
+    case REMOVE_ACTOR: {
+      return Object.entries(state)
+        .map(([id, movie]) => [
+          id,
+          Object.assign({}, movie, {
+            cast: movie.cast.filter(actorId => actorId !== data.id),
+          })])
+        .reduce((all, [id, movie]) => Object.assign({}, all, { [id]: movie }), {});
     }
     default: {
       return state;
