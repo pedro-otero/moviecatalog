@@ -156,8 +156,10 @@ const mapStateToProps = ({ movies, actors }, { id }) => {
 
 const mapDispatchToProps = dispatch => ({
   actions: {
-    create: (id, title, synopsis, genres, actors) => dispatch(addMovie(id, title, synopsis, genres, actors)),
-    update: (id, title, synopsis, genres, actors) => dispatch(updateMovie(id, title, synopsis, genres, actors)),
+    create: (id, title, synopsis, genres, actors) =>
+      dispatch(addMovie(id, title, synopsis, genres, actors)),
+    update: (id, title, synopsis, genres, actors) =>
+      dispatch(updateMovie(id, title, synopsis, genres, actors)),
   },
 });
 
