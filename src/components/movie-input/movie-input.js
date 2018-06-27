@@ -7,6 +7,12 @@ import { addMovie, updateMovie } from '../../redux/movies';
 import Genre from '../genre/genre';
 import SaveButton from '../save-button/save-button';
 
+const NoActors = () => (
+  <div>
+    <small className="form-text text-muted">There are no actors that can be added. </small>
+    <Link to="/add/actor">Create one</Link>
+  </div>);
+
 export class MovieInput extends React.Component {
   constructor(props) {
     super(props);
@@ -124,11 +130,7 @@ export class MovieInput extends React.Component {
         ))}
         <small className="form-text text-muted">Click on actors to select them</small>
       </div>}
-      {actors.length === 0 &&
-        <div>
-          <small className="form-text text-muted">There are no actors that can be added. </small>
-          <Link to="/add/actor">Create one</Link>
-        </div>}
+      {actors.length === 0 && <NoActors />}
       <br />
       <SaveButton onClick={this.save} />
     </form>;
