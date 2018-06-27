@@ -25,7 +25,7 @@ id, name, bio,
     <br />
     <Link
         to="/add/actor"
-        class="btn btn-primary">
+        className="btn btn-primary">
       Add
     </Link>
   </ul>

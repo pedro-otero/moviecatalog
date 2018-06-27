@@ -29,7 +29,7 @@ id, title, synopsis, genres, cast,
       ))}
     <Link
         to="/add/movie"
-        class="btn btn-primary">
+        className="btn btn-primary">
       Add
     </Link>
   </ul>
