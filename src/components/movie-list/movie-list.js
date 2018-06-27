@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Movie from '../movie/movie';
 import { removeMovie } from '../../redux/movies';
+import DeleteButton from '../delete-button/delete-button';
 
 export const MovieList = ({ movies, remove }) => (
   <ul className="list-group">
@@ -23,12 +24,7 @@ id, title, synopsis, genres, cast,
           cast={cast}
         />
     </Link>
-    <button
-        type="button"
-        className="btn btn-danger"
-        onClick={() => remove(id)}>
-      Delete
-    </button>
+    <DeleteButton action={() => remove(id)} />
   </li>
       ))}
     <Link
