@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { addMovie, updateMovie } from '../../redux/movies';
 import Genre from '../genre/genre';
 import SaveButton from '../save-button/save-button';
@@ -70,6 +70,7 @@ export class MovieInput extends React.Component {
       this.setState({ id: newId });
       this.props.actions.create(newId, title, synopsis, genres, selectedActors);
     }
+    this.props.history.push('/movies');
   };
 
   render() {
@@ -142,6 +143,7 @@ MovieInput.propTypes = {
   actors: PropTypes.object,
   cast: PropTypes.array,
   genres: PropTypes.array,
+  history: PropTypes.object,
   id: PropTypes.string,
   synopsis: PropTypes.string,
   title: PropTypes.string,
@@ -171,4 +173,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieInput);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MovieInput));
