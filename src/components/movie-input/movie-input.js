@@ -62,18 +62,21 @@ export class MovieInput extends React.Component {
     const {
       id, title, synopsis, genres, actors,
     } = this.state;
-    const selectedActors = actors
-      .filter(actor => actor.selected)
-      .map(actor => actor.id);
+    const { actions, history } = this.props;
+    const selectedActors = this.getActorIds(actors);
     if (id) {
-      this.props.actions.update(id, title, synopsis, genres, selectedActors);
+      actions.update(id, title, synopsis, genres, selectedActors);
     } else {
       const newId = uuid();
       this.setState({ id: newId });
-      this.props.actions.create(newId, title, synopsis, genres, selectedActors);
+      actions.create(newId, title, synopsis, genres, selectedActors);
     }
-    this.props.history.push('/movies');
+    history.push('/movies');
   };
+
+  getActorIds = actors => actors
+    .filter(actor => actor.selected)
+    .map(actor => actor.id);
 
   renderGenreControls = (genres, genre) => (
     <div className="form-group">
