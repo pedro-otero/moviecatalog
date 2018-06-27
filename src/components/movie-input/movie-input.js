@@ -75,11 +75,46 @@ export class MovieInput extends React.Component {
     this.props.history.push('/movies');
   };
 
+  renderGenreControls = (genres, genre) => (
+    <div className="form-group">
+      <label htmlFor="genre">Genres</label>
+      <br />
+      {genres.map(genreItem => (
+        <Genre
+            key={`genre-${genreItem}`}
+            name={genreItem}
+            onClick={this.deleteGenre(genreItem)} />
+      ))}
+      <input
+          id="genre"
+          className="form-control"
+          value={genre}
+          onChange={this.onChange('genre')}
+          onKeyDown={this.enterGenre} />
+      <small className="form-text text-muted">Type genre and press Enter</small>
+    </div>
+  );
+
+  renderActorSelectors = actors => (
+    <div className="form-group">
+      {actors.map((actor, i) => (
+        <Fragment key={`actor-${actor.name}`}>
+          <button
+              type="button"
+              onClick={this.selectActor(i)}
+              className={`btn ${actor.selected ? 'btn-success' : 'btn-light'}`}>
+            {actor.name}
+          </button>
+        </Fragment>
+      ))}
+      <small className="form-text text-muted">Click on actors to select them</small>
+    </div>
+  );
+
   render() {
-    const { enterGenre, state } = this;
     const {
       title, synopsis, genre, genres, actors,
-    } = state;
+    } = this.state;
 
     return <form>
       <div className="form-group">
@@ -91,23 +126,7 @@ export class MovieInput extends React.Component {
             value={title}
             onChange={this.onChange('title')} />
       </div>
-      <div className="form-group">
-        <label htmlFor="genre">Genres</label>
-        <br />
-        {genres.map(genreItem => (
-          <Genre
-              key={`genre-${genreItem}`}
-              name={genreItem}
-              onClick={this.deleteGenre(genreItem)} />
-        ))}
-        <input
-            id="genre"
-            className="form-control"
-            value={genre}
-            onChange={this.onChange('genre')}
-            onKeyDown={enterGenre} />
-        <small className="form-text text-muted">Type genre and press Enter</small>
-      </div>
+      {this.renderGenreControls(genres, genre)}
       <div className="form-group">
         <label htmlFor="synopsis">Synopsis</label>
         <textarea
@@ -117,19 +136,7 @@ export class MovieInput extends React.Component {
             onChange={this.onChange('synopsis')} />
       </div>
       <p>Actors</p>
-      {actors.length > 0 && <div className="form-group">
-        {actors.map((actor, i) => (
-          <Fragment key={`actor-${actor.name}`}>
-            <button
-                type="button"
-                onClick={this.selectActor(i)}
-                className={`btn ${actor.selected ? 'btn-success' : 'btn-light'}`}>
-              {actor.name}
-            </button>
-          </Fragment>
-        ))}
-        <small className="form-text text-muted">Click on actors to select them</small>
-      </div>}
+      {actors.length > 0 && this.renderActorSelectors(actors)}
       {actors.length === 0 && <NoActors />}
       <br />
       <SaveButton onClick={this.save} />
