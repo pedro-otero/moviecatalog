@@ -5,23 +5,31 @@ import { connect } from 'react-redux';
 import Movie from '../movie/movie';
 
 export const MovieList = ({ movies }) => (
-  <div>
+  <ul className="list-group">
     {movies.map(({
 id, title, synopsis, genres, cast,
 }) => (
-  <Link
-      to={`/movies/${id}`}
+  <li
+      className="list-group-item"
       key={`list-movie-${title}`}>
-    <Movie
-        title={title}
-        synopsis={synopsis}
-        genres={genres}
-        cast={cast}
+    <Link
+        to={`/movies/${id}`}
+        key={`list-movie-${title}`}>
+      <Movie
+          title={title}
+          synopsis={synopsis}
+          genres={genres}
+          cast={cast}
         />
-  </Link>
+    </Link>
+  </li>
       ))}
-    <Link to="/add/movie">Add</Link>
-  </div>
+    <Link
+        to="/add/movie"
+        class="btn btn-primary">
+      Add
+    </Link>
+  </ul>
 );
 
 MovieList.propTypes = {
