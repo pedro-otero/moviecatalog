@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Title from '../title/title';
 import Genre from '../genre/genre';
+import Truncate from '../truncate/truncate';
 
 const Movie = ({
   title, synopsis, genres, cast,
@@ -12,7 +13,7 @@ const Movie = ({
       <Genre
           key={`genre-${genre}`}
           name={genre} />))}
-    <p>{synopsis}</p>
+    <Truncate value={synopsis} />
     <p>
       <strong>Starring: </strong>
       {cast.join(', ')}

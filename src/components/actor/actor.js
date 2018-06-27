@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Title from '../title/title';
+import Truncate from '../truncate/truncate';
 
 const Actor = ({ name, bio }) => (
   <div>
     <Title value={name} />
-    <p>{bio}</p>
+    <Truncate value={bio} />
   </div>
 );
 
