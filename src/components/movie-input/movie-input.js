@@ -26,11 +26,7 @@ export class MovieInput extends React.Component {
     };
   }
 
-  onTitleChange = e => this.setState({ title: e.target.value });
-
-  onSynopsisChange = e => this.setState({ synopsis: e.target.value });
-
-  onGenreChange = e => this.setState({ genre: e.target.value });
+  onChange = key => e => this.setState({ [key]: e.target.value });
 
   deleteGenre = genre => () => this.setState({
     genres: this.state.genres.filter(g => g !== genre),
@@ -83,7 +79,7 @@ export class MovieInput extends React.Component {
             className="form-control"
             type="text"
             value={this.state.title}
-            onChange={this.onTitleChange} />
+            onChange={this.onChange('title')} />
       </div>
       <div className="form-group">
         <label htmlFor="genre">Genres</label>
@@ -98,7 +94,7 @@ export class MovieInput extends React.Component {
             id="genre"
             className="form-control"
             value={this.state.genre}
-            onChange={this.onGenreChange}
+            onChange={this.onChange('genre')}
             onKeyDown={enterGenre} />
         <small className="form-text text-muted">Type genre and press Enter</small>
       </div>
@@ -108,7 +104,7 @@ export class MovieInput extends React.Component {
             id="synopsis"
             className="form-control"
             value={this.state.synopsis}
-            onChange={this.onSynopsisChange} />
+            onChange={this.onChange('synopsis')} />
       </div>
       <p>Actors</p>
       {this.state.actors.length > 0 && <div className="form-group">

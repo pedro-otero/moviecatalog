@@ -16,9 +16,7 @@ export class ActorInput extends React.Component {
     };
   }
 
-  onNameChange = e => this.setState({ name: e.target.value });
-
-  onBioChange = e => this.setState({ bio: e.target.value });
+  onChange = key => e => this.setState({ [key]: e.target.value });
 
   save = () => {
     const { id, name, bio } = this.state;
@@ -41,7 +39,7 @@ export class ActorInput extends React.Component {
             className="form-control"
             type="text"
             value={this.state.name}
-            onChange={this.onNameChange} />
+            onChange={this.onChange('name')} />
       </div>
       <div className="form-group">
         <label htmlFor="bio">Bio</label>
@@ -49,7 +47,7 @@ export class ActorInput extends React.Component {
             id="bio"
             className="form-control"
             value={this.state.bio}
-            onChange={this.onBioChange} />
+            onChange={this.onChange('bio')} />
       </div>
       <SaveButton onClick={this.save} />
     </form>;
