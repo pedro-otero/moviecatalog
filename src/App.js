@@ -9,6 +9,7 @@ import ActorList from './components/actor-list/actor-list';
 import ActorInput from './components/actor-input/actor-input';
 import MovieInput from './components/movie-input/movie-input';
 import GenreList from './components/genre-list/genre-list';
+import SearchInput from './components/search-input/search-input';
 
 class App extends Component {
   render() {
@@ -16,6 +17,10 @@ class App extends Component {
       <Provider store={this.props.store}>
         <Router>
           <div className="container">
+            <div className="row">
+              <div className="col-1"><h1>mooveez</h1></div>
+              <div className="col-7"><SearchInput /></div>
+            </div>
             <div className="row">
               <div className="col">
                 <Route

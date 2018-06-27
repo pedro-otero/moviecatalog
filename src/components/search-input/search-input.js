@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 class SearchInput extends React.Component {
+  state = {};
+
   onFilterChange = (e) => {
     this.setState({ filter: e.target.value });
   };
