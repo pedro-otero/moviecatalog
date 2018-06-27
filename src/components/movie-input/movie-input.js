@@ -101,13 +101,11 @@ export class MovieInput extends React.Component {
       </div>
       <div className="form-group">
         <label htmlFor="synopsis">Synopsis</label>
-        <input
-            type="text"
+        <textarea
             id="synopsis"
             className="form-control"
             value={this.state.synopsis}
-            onChange={this.onSynopsisChange}
-            margin="normal" />
+            onChange={this.onSynopsisChange} />
       </div>
       <div className="form-group">
         <p>Actors</p>

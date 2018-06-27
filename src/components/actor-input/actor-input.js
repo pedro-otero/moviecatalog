@@ -42,13 +42,11 @@ export class ActorInput extends React.Component {
       </div>
       <div className="form-group">
         <label htmlFor="bio">Bio</label>
-        <input
+        <textarea
             id="bio"
             className="form-control"
-            type="text"
             value={this.state.bio}
-            onChange={this.onBioChange}
-            margin="normal" />
+            onChange={this.onBioChange} />
       </div>
       <button
           type="button"
