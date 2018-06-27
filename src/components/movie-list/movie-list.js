@@ -15,12 +15,19 @@ id, title,
   <li
       className="list-group-item"
       key={`list-movie-${title}`}>
-    <Link
-        to={`/movies/${id}`}
-        key={`list-movie-${title}`}>
-      {title}
-    </Link>
-    <DeleteButton action={() => remove(id)} />
+    <div className="container">
+      <div className="row">
+        <Link
+            to={`/movies/${id}`}
+            key={`list-movie-${title}`}
+            className="col col-11">
+          {title}
+        </Link>
+        <DeleteButton
+            className="col col-1"
+            action={() => remove(id)} />
+      </div>
+    </div>
   </li>
       ))}
     <AddButton path="/add/movie" />
