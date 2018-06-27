@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Title from '../title/title';
 import EditButton from '../edit-button/edit-button';
 
 export const Actor = ({ id, name, bio }) => (
   <div>
-    <Title value={name} />
+    <h2>{name}</h2>
     <p>{bio}</p>
     <EditButton path={`/edit/actor/${id}`} />
   </div>
