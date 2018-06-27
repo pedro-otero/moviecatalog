@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addMovie, updateMovie } from '../../redux/movies';
 import Genre from '../genre/genre';
 import SaveButton from '../save-button/save-button';
@@ -108,8 +109,8 @@ export class MovieInput extends React.Component {
             value={this.state.synopsis}
             onChange={this.onSynopsisChange} />
       </div>
-      <div className="form-group">
-        <p>Actors</p>
+      <p>Actors</p>
+      {this.state.actors.length > 0 && <div className="form-group">
         {this.state.actors.map((actor, i) => (
           <Fragment key={`actor-${actor.name}`}>
             <button
@@ -121,7 +122,12 @@ export class MovieInput extends React.Component {
           </Fragment>
         ))}
         <small className="form-text text-muted">Click on actors to select them</small>
-      </div>
+      </div>}
+      {this.state.actors.length === 0 &&
+        <div>
+          <small className="form-text text-muted">There are no actors that can be added. </small>
+          <Link to="/add/actor">Create one</Link>
+        </div>}
       <br />
       <SaveButton onClick={this.save} />
     </form>;
