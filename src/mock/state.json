@@ -1,0 +1,103 @@
+{
+  "movies": {
+    "jurassic": {
+      "title": "Jurassic World: Fallen Kingdom",
+      "synopsis": "Three years after the destruction of the Jurassic World theme park, Owen Grady and Claire Dearing return to the island of Isla Nublar to save the remaining dinosaurs from a volcano that's about to erupt. They soon encounter terrifying new breeds of gigantic dinosaurs, while uncovering a conspiracy that threatens the entire planet.",
+      "cast": [
+        "chrispratt",
+        "brycedallas"
+      ],
+      "genres": [
+        "Sci-Fi"
+      ]
+    },
+    "overboard": {
+      "title": "Overboard",
+      "synopsis": "Kate is a single, working-class mother of three who's hired to clean a luxury yacht that belongs to Leonardo -- a selfish, spoiled and wealthy Mexican playboy. After unjustly firing Kate, Leonardo falls off the boat and wakes up with no memory of who he is. To get payback, Kate shows up at the hospital and convinces the confused amnesiac that they're married. As Leonardo tries to get used to manual labor and his new family, Kate starts to wonder how long she can keep fooling her fake husband.",
+      "cast": [
+        "eugenioderbez",
+        "annafaris"
+      ],
+      "genres": [
+        "Romantic comedy"
+      ]
+    },
+    "americananimals": {
+      "title": "American Animals",
+      "synopsis": "Spencer Reinhard, Warren Lipka, Eric Borsuk and Chas Allen are four friends who live an ordinary existence in Kentucky. After a visit to Transylvania University, Lipka comes up with the idea to steal the rarest and most valuable books from the school's library. As one of the most audacious art heists in U.S. history starts to unfold, the men question whether their attempts to inject excitement and purpose into their lives are simply misguided attempts at achieving the American dream.",
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "cast": [
+        "evanpetters",
+        "barrykeoghan"
+      ]
+    },
+    "hearts": {
+      "title": "Hearts Beat Loud",
+      "synopsis": "In the hip Brooklyn neighborhood of Red Hook, single dad and record store owner Frank is preparing to send his hard-working daughter Sam off to college while being forced to close his vintage shop. Hoping to stay connected through their shared musical passions, Frank urges Sam to turn their weekly jam sessions into a father-daughter live act. After their first song becomes an internet breakout, the two embark on a journey of love, growing up and musical discovery.",
+      "genres": [
+        "Musical",
+        "Drama"
+      ],
+      "cast": [
+        "nickofferman",
+        "kierseyclemons"
+      ]
+    },
+    "octavio": {
+      "title": "Octavio Is Dead",
+      "synopsis": "Octavio Is Dead! is a Canadian supernatural drama film directed by Sook-Yin Lee, which premiered on June 2, 2018 at the Inside Out Film and Video Festival before going into theatrical release on June 22.",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [
+        "sarahgadon",
+        "raoulmaxtrujillo"
+      ]
+    }
+  },
+  "actors": {
+    "chrispratt": {
+      "name": "Chris Pratt",
+      "bio": "Christopher Michael Pratt is an American actor. Pratt came to prominence with his television roles, particularly for his role as Andy Dwyer in the NBC sitcom Parks and Recreation."
+    },
+    "brycedallas": {
+      "name": "Bryce Dallas Howard",
+      "bio": "Bryce Dallas Howard is an American actress, director, producer, model, and writer. She is the eldest daughter of actor and director Ron Howard."
+    },
+    "eugenioderbez": {
+      "name": "Eugenio Derbez",
+      "bio": "Eugenio González Derbez is a Mexican actor, comedian, and filmmaker. In 2014, he was recognized by Variety as the most influential Hispanic male in the entertainment industry."
+    },
+    "annafaris": {
+      "name": "Anna Faris",
+      "bio": "Anna Kay Faris is an American actress and producer. Faris rose to prominence for her work in comedic roles, particularly the lead part of Cindy Campbell in the Scary Movie films."
+    },
+    "evanpetters": {
+      "name": "Evan Petters",
+      "bio": "American actor, best known for his multiple roles on the FX anthology series American Horror Story, of which he has been a main cast member since its debut in 2011, and his role as the mutant Quicksilver in the superhero films X-Men: Days of Future Past (2014) and X-Men: Apocalypse (2016)."
+    },
+    "barrykeoghan": {
+      "name": "Barry Keoghan",
+      "bio": "Irish actor. He has appeared in the films Dunkirk along with Mark Rylance, Cillian Murphy, and Tom Glynn-Carney; The Killing of a Sacred Deer with Nicole Kidman, Colin Farrell and Alicia Silverstone; and Trespass Against Us with Michael Fassbender and Brendan Gleeson. He has also played the \"heartless cat killer\" Wayne in the RTÉ drama Love/Hate."
+    },
+    "nickofferman": {
+      "name": "Nick Offerman",
+      "bio": "American actor, writer, comedian, and woodworker who is known for his role as Ron Swanson in the NBC sitcom Parks and Recreation, for which he received the Television Critics Association Award for Individual Achievement in Comedy, as well as his role in The Founder, in which he portrays Dick McDonald, one of the brothers who developed the fast food chain McDonald's. His first major television role since the end of Parks and Recreation was as Karl Weathers in the FX series Fargo, for which he received a Critics' Choice Television Award nomination for Best Supporting Actor in a Movie/Miniseries."
+    },
+    "kierseyclemons": {
+      "name": "Kiersey Clemons",
+      "bio": "American actress and singer. Clemons is best known for portraying Cassandra \"Diggy\" Andrews in the acclaimed 2015 comedy-drama film Dope. Her other notable roles include Transparent, Extant, and Neighbors 2: Sorority Rising. Clemons is cast as Iris West in the DC Extended Universe."
+    },
+    "sarahgadon": {
+      "name": "Sarah Gadon",
+      "bio": "Sarah Gadon is a Canadian actress. She first gained recognition for her performances in David Cronenberg's films A Dangerous Method and Cosmopolis"
+    },
+    "raoulmaxtrujillo": {
+      "name": "Raoul Max Trujillo",
+      "bio": "Raoul Maximiano Trujillo de Chauvelon is an American actor, dancer, and choreographer. A former soloist with the Nikolais Dance Theatre, he is the original choreographer and co-director for the American Indian Dance Theatre."
+    }
+  }
+}
