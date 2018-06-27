@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
 import { addMovie, updateMovie } from '../../redux/movies';
+import Genre from '../genre/genre';
 
 export class MovieInput extends React.Component {
   constructor(props) {
@@ -85,12 +86,10 @@ export class MovieInput extends React.Component {
         <label htmlFor="genre">Genres</label>
         <br />
         {this.state.genres.map(genre => (
-          <span
+          <Genre
               key={`genre-${genre}`}
-              className="badge badge-pill badge-info"
-              onClick={this.deleteGenre(genre)}>
-            {`"${genre}"`}
-          </span>
+              name={genre}
+              onClick={this.deleteGenre(genre)} />
         ))}
         <input
             id="genre"
