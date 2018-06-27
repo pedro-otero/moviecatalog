@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Movie from '../movie/movie';
+import { removeMovie } from '../../redux/movies';
 
-export const MovieList = ({ movies }) => (
+export const MovieList = ({ movies, remove }) => (
   <ul className="list-group">
     {movies.map(({
 id, title, synopsis, genres, cast,
@@ -22,6 +23,12 @@ id, title, synopsis, genres, cast,
           cast={cast}
         />
     </Link>
+    <button
+        type="button"
+        className="btn btn-danger"
+        onClick={() => remove(id)}>
+      Delete
+    </button>
   </li>
       ))}
     <Link
@@ -34,6 +41,7 @@ id, title, synopsis, genres, cast,
 
 MovieList.propTypes = {
   movies: PropTypes.array,
+  remove: PropTypes.func,
 };
 
 const mapStateToProps = ({ movies, actors }) => ({
@@ -43,4 +51,8 @@ const mapStateToProps = ({ movies, actors }) => ({
     })),
 });
 
-export default connect(mapStateToProps)(MovieList);
+const mapDispatchToProps = dispatch => ({
+  remove: id => dispatch(removeMovie(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList);
