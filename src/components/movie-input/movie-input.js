@@ -104,7 +104,7 @@ export class MovieInput extends React.Component {
           <button
               type="button"
               onClick={this.selectActor(i)}
-              className={`btn ${actor.selected ? 'btn-success' : 'btn-light'}`}>
+              className={`btn mr-2 mb-2 ${actor.selected ? 'btn-success' : 'btn-light'}`}>
             {actor.name}
           </button>
         </Fragment>
