@@ -20,6 +20,11 @@ const movies = [{
   synopsis: 'Everyone talks about this one',
   cast: ['Meryl Streep'],
   genres: ['Thriller'],
+}, {
+  title: 'The Horror',
+  synopsis: '...',
+  cast: [],
+  genres: ['Sci-Fi'],
 }];
 
 storiesOf('Search', module)
@@ -44,5 +49,10 @@ storiesOf('Search', module)
   .add('Cast', () => (
     <Search
         filter="meryl streep"
+        movies={movies} />
+  ))
+  .add('Multiple', () => (
+    <Search
+        filter="horror"
         movies={movies} />
   ));
