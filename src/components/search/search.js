@@ -5,19 +5,22 @@ class Search extends React.Component {
   static getDerivedStateFromProps({ filter, movies }) {
     const FILTER = filter.toUpperCase();
     return {
-      movies: movies.filter(({
-        title, synopsis = '', cast = [], genres = [],
-      }) =>
-        title.toUpperCase().includes(FILTER) ||
-        synopsis.toUpperCase().includes(FILTER) ||
-        cast.map(c => c.toUpperCase()).includes(FILTER) ||
+      byTitle: movies.filter(({ title }) =>
+        title.toUpperCase().includes(FILTER)),
+      bySynopsis: movies.filter(({ synopsis = '' }) =>
+        synopsis.toUpperCase().includes(FILTER)),
+      byCast: movies.filter(({ cast = [] }) =>
+        cast.map(c => c.toUpperCase()).includes(FILTER)),
+      byGenre: movies.filter(({ genres = [] }) =>
         genres.map(g => g.toUpperCase()).includes(FILTER)),
     };
   }
 
   render() {
     return (
-      <div></div>
+      <div>
+
+      </div>
     );
   }
 }

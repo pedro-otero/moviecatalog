@@ -17,7 +17,7 @@ describe('Search component', () => {
       filter: 'make',
       movies: [movie1, movie2],
     });
-    expect(state.movies[0].title).toEqual('The One That Should Make It');
+    expect(state.byTitle[0].title).toEqual('The One That Should Make It');
   });
 
   it('filters movies by synopsis', () => {
@@ -32,7 +32,7 @@ describe('Search component', () => {
       movies: [movie1, movie2],
       filter: 'argument',
     });
-    expect(state.movies[0].title).toEqual('The One That Should Make It');
+    expect(state.bySynopsis[0].title).toEqual('The One That Should Make It');
   });
 
   it('filters movies by cast', () => {
@@ -48,7 +48,7 @@ describe('Search component', () => {
       movies: [movie1, movie2],
       filter: 'girl',
     });
-    expect(state.movies[0].title).toEqual('The One That Should Make It');
+    expect(state.byCast[0].title).toEqual('The One That Should Make It');
   });
 
   it('filters movies by genres', () => {
@@ -58,12 +58,11 @@ describe('Search component', () => {
     };
     const movie2 = {
       title: 'Not the one',
-      cast: ['Comedy'],
     };
     const state = Search.getDerivedStateFromProps({
       movies: [movie1, movie2],
       filter: 'horror',
     });
-    expect(state.movies[0].title).toEqual('The One That Should Make It');
+    expect(state.byGenre[0].title).toEqual('The One That Should Make It');
   });
 });
