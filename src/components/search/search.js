@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-class Search extends React.Component {
+export class Search extends React.Component {
   static getDerivedStateFromProps({ filter, movies }) {
     const FILTER = filter.toUpperCase();
     return {
@@ -52,4 +53,14 @@ Search.propTypes = {
   filter: PropTypes.string.isRequired,
 };
 
-export default Search;
+const mapStateToProps = ({ movies, actors }) => ({
+  movies: Object.entries(movies)
+    .map(([id, movie]) => ({
+      id,
+      ...Object.assign({}, movie, {
+        cast: movie.cast.map(actorId => actors[actorId].name),
+      }),
+    })),
+});
+
+export default connect(mapStateToProps)(Search);

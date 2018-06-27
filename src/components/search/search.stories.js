@@ -2,7 +2,7 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
-import Search from './search';
+import { Search } from './search';
 
 const movies = [{
   id: 'anId',
