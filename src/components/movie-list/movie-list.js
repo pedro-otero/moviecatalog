@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -8,30 +8,27 @@ import DeleteButton from '../delete-button/delete-button';
 import AddButton from '../add-button/add-button';
 
 export const MovieList = ({ movies, remove }) => (
-  <ul className="list-group">
-    {movies.map(({
-id, title,
-}) => (
-  <li
-      className="list-group-item"
-      key={`list-movie-${title}`}>
+  <Fragment>
     <div className="container">
-      <div className="row">
-        <Link
-            to={`/movies/${id}`}
+      {movies.map(({ id, title }) => (
+        <div
             key={`list-movie-${title}`}
-            className="col col-11">
-          {title}
-        </Link>
-        <DeleteButton
-            className="col col-1"
-            action={() => remove(id)} />
-      </div>
-    </div>
-  </li>
+            className="row pb-2 pt-2 border-bottom">
+          <Link
+              to={`/movies/${id}`}
+              key={`list-movie-${title}`}
+              className="col col-11">
+            {title}
+          </Link>
+          <DeleteButton
+              className="col col-1"
+              action={() => remove(id)} />
+        </div>
       ))}
+    </div>
+    <br />
     <AddButton path="/add/movie" />
-  </ul>
+  </Fragment>
 );
 
 MovieList.propTypes = {
