@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import styled from 'styled-components';
 import './App.css';
 import Navigation from './components/navigation/navigation';
 import MovieList from './components/movie-list/movie-list';
@@ -14,26 +15,30 @@ import Search from './components/search/search';
 import Actor from './components/actor/actor';
 import Movie from './components/movie/movie';
 
+const Top = styled.div`
+  background-color: #dddddd;
+`;
+
 class App extends Component {
   render() {
     return (
       <Provider store={this.props.store}>
         <Router>
           <div>
-            <div className="container-fluid">
+            <Top className="container-fluid pt-3 sticky-top shadow-sm">
               <div className="row">
                 <div className="col-4"><h1>mooveez</h1></div>
                 <div className="col-8"><SearchInput /></div>
               </div>
-            </div>
+            </Top>
             <div className="container-fluid">
               <div className="row">
-                <div className="col-2">
+                <div className="col-2 pt-3 border-right">
                   <Route
                       path="/"
                       component={Navigation} />
                 </div>
-                <div className="col-10">
+                <div className="col-10 py-3">
                   <Route
                       exact
                       path="/movies"
