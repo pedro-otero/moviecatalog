@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Title = ({ value }) => (
-  <h4>{value}</h4>
+  <h2>{value}</h2>
 );
 
 Title.propTypes = {
