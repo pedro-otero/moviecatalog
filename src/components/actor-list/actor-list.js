@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Actor from '../actor/actor';
 import DeleteButton from '../delete-button/delete-button';
 import { removeActor } from '../../redux/actors';
+import AddButton from '../add-button/add-button';
 
 export const ActorList = ({ actors, remove }) => (
   <ul className="list-group">
@@ -23,11 +24,7 @@ id, name, bio,
   </li>
       ))}
     <br />
-    <Link
-        to="/add/actor"
-        className="btn btn-primary">
-      Add
-    </Link>
+    <AddButton path="/add/actor" />
   </ul>
 );
 

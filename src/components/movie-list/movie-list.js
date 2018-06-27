@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Movie from '../movie/movie';
 import { removeMovie } from '../../redux/movies';
 import DeleteButton from '../delete-button/delete-button';
+import AddButton from '../add-button/add-button';
 
 export const MovieList = ({ movies, remove }) => (
   <ul className="list-group">
@@ -27,11 +28,7 @@ id, title, synopsis, genres, cast,
     <DeleteButton action={() => remove(id)} />
   </li>
       ))}
-    <Link
-        to="/add/movie"
-        className="btn btn-primary">
-      Add
-    </Link>
+    <AddButton path="/add/movie" />
   </ul>
 );
 
