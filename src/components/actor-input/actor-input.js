@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { addActor, updateActor } from '../../redux/actors';
 import SaveButton from '../save-button/save-button';
 
@@ -28,6 +29,7 @@ export class ActorInput extends React.Component {
       this.setState({ id: newId });
       this.props.actions.create(newId, name, bio);
     }
+    this.props.history.push('/actors');
   };
 
   render() {
@@ -60,6 +62,7 @@ ActorInput.propTypes = {
     update: PropTypes.func,
   }),
   bio: PropTypes.string,
+  history: PropTypes.object,
   id: PropTypes.string,
   name: PropTypes.string,
 };
@@ -83,4 +86,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ActorInput);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ActorInput));
