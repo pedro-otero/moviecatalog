@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Genre from '../genre/genre';
 import EditButton from '../edit-button/edit-button';
 
-const Movie = ({
+export const Movie = ({
   id, title, synopsis, genres, cast,
 }) => (
   <div>
