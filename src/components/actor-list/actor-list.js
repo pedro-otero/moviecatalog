@@ -10,15 +10,11 @@ export const ActorList = ({ actors, remove }) => (
   <Fragment>
     <div className="container">
       {actors.map(({ id, name }) => (
-        <div
-            className="row pb-2 pt-2 border-bottom"
-            key={`list-actor-${name}`}>
-          <Link
-              to={`/actors/${id}`}
-              className="col col-9 col-md-11">{name}</Link>
-          <DeleteButton
-              className="col col-3 col-md-1"
-              action={() => remove(id)} />
+        <div className="row pb-2 pt-2 border-bottom" key={`list-actor-${name}`}>
+          <Link to={`/actors/${id}`} className="col col-9 col-md-11">
+            {name}
+          </Link>
+          <DeleteButton className="col col-3 col-md-1" action={() => remove(id)} />
         </div>
       ))}
     </div>
