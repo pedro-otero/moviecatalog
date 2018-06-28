@@ -10,18 +10,14 @@ export const MovieList = ({ movies, remove }) => (
   <Fragment>
     <div className="container">
       {movies.map(({ id, title }) => (
-        <div
-            key={`list-movie-${title}`}
-            className="row pb-2 pt-2 border-bottom">
+        <div key={`list-movie-${title}`} className="row pb-2 pt-2 border-bottom">
           <Link
               to={`/movies/${id}`}
               key={`list-movie-${title}`}
               className="col col-9 col-md-11">
             {title}
           </Link>
-          <DeleteButton
-              className="col col-3 col-md-1"
-              action={() => remove(id)} />
+          <DeleteButton className="col col-3 col-md-1" action={() => remove(id)} />
         </div>
       ))}
     </div>
