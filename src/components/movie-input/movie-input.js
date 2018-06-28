@@ -14,22 +14,26 @@ const NoActors = () => (
   </div>);
 
 export class MovieInput extends React.Component {
-  static getDerivedStateFromProps = ({
-    id, title, synopsis, genres, actors, cast,
-  }) => ({
-    id,
-    title,
-    synopsis,
-    genres,
-    genre: '',
-    actors: Object
-      .entries(actors)
-      .map(([key, actor]) =>
-        Object.assign({}, actor, {
-          id: key,
-          selected: cast.includes(key),
-        })),
-  });
+  constructor(props) {
+    super(props);
+    const {
+      id, title, synopsis, genres, actors, cast,
+    } = props;
+    this.state = {
+      id,
+      title,
+      synopsis,
+      genres,
+      genre: '',
+      actors: Object
+        .entries(actors)
+        .map(([key, actor]) =>
+          Object.assign({}, actor, {
+            id: key,
+            selected: cast.includes(key),
+          })),
+    };
+  }
 
   onChange = key => e => this.setState({ [key]: e.target.value });
 
