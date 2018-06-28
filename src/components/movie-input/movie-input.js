@@ -25,15 +25,17 @@ export class MovieInput extends React.Component {
       synopsis,
       genres,
       genre: '',
-      actors: Object
-        .entries(actors)
-        .map(([key, actor]) =>
-          Object.assign({}, actor, {
-            id: key,
-            selected: cast.includes(key),
-          })),
+      actors: this.mapActors(actors, cast),
     };
   }
+
+  mapActors = (actors, cast) => Object
+    .entries(actors)
+    .map(([key, actor]) =>
+      Object.assign({}, actor, {
+        id: key,
+        selected: cast.includes(key),
+      }));
 
   onChange = key => e => this.setState({ [key]: e.target.value });
 
