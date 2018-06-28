@@ -31,6 +31,7 @@ export class ActorInput extends React.Component {
   };
 
   render() {
+    const { name, bio } = this.state;
     return <div>
       <div className="form-group">
         <label htmlFor="name">Name</label>
@@ -38,7 +39,7 @@ export class ActorInput extends React.Component {
             id="name"
             className="form-control"
             type="text"
-            value={this.state.name}
+            value={name}
             onChange={this.onChange('name')} />
       </div>
       <div className="form-group">
@@ -46,12 +47,10 @@ export class ActorInput extends React.Component {
         <textarea
             id="bio"
             className="form-control"
-            value={this.state.bio}
+            value={bio}
             onChange={this.onChange('bio')} />
       </div>
-      <SaveButton
-          disabled={this.state.name.length === 0}
-          onClick={this.save} />
+      <SaveButton disabled={name.length === 0} onClick={this.save} />
     </div>;
   }
 }
