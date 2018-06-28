@@ -105,13 +105,13 @@ export class MovieInput extends React.Component {
 
   renderActorSelectors = actors => (
     <div className="form-group">
-      {actors.map((actor, i) => (
-        <Fragment key={`actor-${actor.name}`}>
+      {actors.map(({ name, selected }, i) => (
+        <Fragment key={`actor-${name}`}>
           <button
               type="button"
               onClick={this.selectActor(i)}
-              className={`btn mr-2 mb-2 ${actor.selected ? 'btn-success' : 'btn-light'}`}>
-            {actor.name}
+              className={`btn mr-2 mb-2 ${selected ? 'btn-success' : 'btn-light'}`}>
+            {name}
           </button>
         </Fragment>
       ))}
@@ -147,9 +147,7 @@ export class MovieInput extends React.Component {
       {actors.length > 0 && this.renderActorSelectors(actors)}
       {actors.length === 0 && <NoActors />}
       <br />
-      <SaveButton
-          disabled={this.state.title.length === 0}
-          onClick={this.save} />
+      <SaveButton disabled={title.length === 0} onClick={this.save} />
     </form>;
   }
 }
