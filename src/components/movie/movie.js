@@ -10,19 +10,14 @@ export const Movie = ({
 }) => (
   <div>
     <h2>{title}</h2>
-    {genres.map(genre => (
-      <Genre
-          key={`genre-${genre}`}
-          name={genre} />))}
+    {genres.map(genre => <Genre key={`genre-${genre}`} name={genre} />)}
     <br />
     <br />
     <p>{synopsis}</p>
     <p>
       <strong>Starring: </strong>
       {cast.map(({ actorId, name }, i) => (
-        <Link
-            key={`item-actor-${actorId}`}
-            to={`/actors/${actorId}`}>
+        <Link key={`item-actor-${actorId}`} to={`/actors/${actorId}`}>
           {`${name}${i === cast.length - 1 ? '' : ', '}`}
         </Link>))}
     </p>
