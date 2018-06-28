@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Genre from '../genre/genre';
 import EditButton from '../edit-button/edit-button';
+import './movie.css';
 
 export const Movie = ({
   id, title, synopsis, genres, cast,
@@ -16,9 +17,12 @@ export const Movie = ({
     <p>{synopsis}</p>
     <p>
       <strong>Starring: </strong>
-      {cast.map(({ actorId, name }, i) => (
-        <Link key={`item-actor-${actorId}`} to={`/actors/${actorId}`}>
-          {`${name}${i === cast.length - 1 ? '' : ', '}`}
+      {cast.map(({ actorId, name }) => (
+        <Link
+            className="movie-actor-item"
+            key={`item-actor-${actorId}`}
+            to={`/actors/${actorId}`}>
+          <span>{name}</span>
         </Link>))}
     </p>
     <EditButton path={`/edit/movie/${id}`} />
