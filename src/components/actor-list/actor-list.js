@@ -15,9 +15,9 @@ export const ActorList = ({ actors, remove }) => (
             key={`list-actor-${name}`}>
           <Link
               to={`/actors/${id}`}
-              className="col col-11">{name}</Link>
+              className="col col-9 col-md-11">{name}</Link>
           <DeleteButton
-              className="col col-1"
+              className="col col-3 col-md-1"
               action={() => remove(id)} />
         </div>
       ))}

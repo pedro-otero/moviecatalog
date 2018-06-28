@@ -27,57 +27,60 @@ class App extends Component {
           <div>
             <Top className="container-fluid pt-3 sticky-top shadow-sm">
               <div className="row">
-                <div className="col-4"><h1>mooveez</h1></div>
-                <div className="col-8"><SearchInput /></div>
+                <div className="col-4 d-none d-md-block"><h1>mooveez</h1></div>
+                <div className="col-12 col-md-8"><SearchInput /></div>
+              </div>
+              <div className="d-block d-md-none col-12">
+                <Route
+                    path="/"
+                    component={Navigation} />
               </div>
             </Top>
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-2 pt-3 border-right">
-                  <Route
-                      path="/"
-                      component={Navigation} />
-                </div>
-                <div className="col-10 py-3">
-                  <Route
-                      exact
-                      path="/movies"
-                      component={MovieList} />
-                  <Route
-                      exact
-                      path="/add/movie"
-                      component={MovieInput} />
-                  <Route
-                      exact
-                      path="/movies/:id"
-                      render={({ match }) => <Movie id={match.params.id} />} />
-                  <Route
-                      exact
-                      path="/edit/movie/:id"
-                      render={({ match }) => <MovieInput id={match.params.id} />} />
-                  <Route
-                      exact
-                      path="/actors"
-                      component={ActorList} />
-                  <Route
-                      exact
-                      path="/add/actor"
-                      component={ActorInput} />
-                  <Route
-                      exact
-                      path="/actors/:id"
-                      render={({ match }) => <Actor id={match.params.id} />} />
-                  <Route
-                      exact
-                      path="/edit/actor/:id"
-                      render={({ match }) => <ActorInput id={match.params.id} />} />
-                  <Route
-                      path="/genres"
-                      component={GenreList} />
-                  <Route
-                      path="/search"
-                      render={({ location }) => <Search filter={new URLSearchParams(location.search).get('filter')} />} />
-                </div>
+            <div className="container-fluid d-flex flex-column flex-md-row">
+              <div className="d-none d-md-block col-md-2 pt-3 border-right">
+                <Route
+                    path="/"
+                    component={Navigation} />
+              </div>
+              <div className="col-12 col-md-10 py-3">
+                <Route
+                    exact
+                    path="/movies"
+                    component={MovieList} />
+                <Route
+                    exact
+                    path="/add/movie"
+                    component={MovieInput} />
+                <Route
+                    exact
+                    path="/movies/:id"
+                    render={({ match }) => <Movie id={match.params.id} />} />
+                <Route
+                    exact
+                    path="/edit/movie/:id"
+                    render={({ match }) => <MovieInput id={match.params.id} />} />
+                <Route
+                    exact
+                    path="/actors"
+                    component={ActorList} />
+                <Route
+                    exact
+                    path="/add/actor"
+                    component={ActorInput} />
+                <Route
+                    exact
+                    path="/actors/:id"
+                    render={({ match }) => <Actor id={match.params.id} />} />
+                <Route
+                    exact
+                    path="/edit/actor/:id"
+                    render={({ match }) => <ActorInput id={match.params.id} />} />
+                <Route
+                    path="/genres"
+                    component={GenreList} />
+                <Route
+                    path="/search"
+                    render={({ location }) => <Search filter={new URLSearchParams(location.search).get('filter')} />} />
               </div>
             </div>
           </div>
