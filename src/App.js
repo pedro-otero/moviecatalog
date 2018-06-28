@@ -21,9 +21,8 @@ const Top = styled.div`
 
 class App extends Component {
   render() {
-    const NavBar = <Route
-        path="/"
-        component={Navigation} />;
+    const NavBar = <Route path="/" component={Navigation} />;
+
     return (
       <Provider store={this.props.store}>
         <Router>
@@ -36,44 +35,16 @@ class App extends Component {
             <div className="container-fluid d-flex flex-column flex-md-row">
               <div className="d-none d-md-block col-md-2 pt-3 border-right">{NavBar}</div>
               <div className="col-12 col-md-10 py-3">
-                <Route
-                    exact
-                    path="/movies"
-                    component={MovieList} />
-                <Route
-                    exact
-                    path="/add/movie"
-                    component={MovieInput} />
-                <Route
-                    exact
-                    path="/movies/:id"
-                    render={({ match }) => <Movie id={match.params.id} />} />
-                <Route
-                    exact
-                    path="/edit/movie/:id"
-                    render={({ match }) => <MovieInput id={match.params.id} />} />
-                <Route
-                    exact
-                    path="/actors"
-                    component={ActorList} />
-                <Route
-                    exact
-                    path="/add/actor"
-                    component={ActorInput} />
-                <Route
-                    exact
-                    path="/actors/:id"
-                    render={({ match }) => <Actor id={match.params.id} />} />
-                <Route
-                    exact
-                    path="/edit/actor/:id"
-                    render={({ match }) => <ActorInput id={match.params.id} />} />
-                <Route
-                    path="/genres"
-                    component={GenreList} />
-                <Route
-                    path="/search"
-                    render={({ location }) => <Search filter={new URLSearchParams(location.search).get('filter')} />} />
+                <Route exact path="/movies" component={MovieList} />
+                <Route exact path="/add/movie" component={MovieInput} />
+                <Route exact path="/movies/:id" render={({ match }) => <Movie id={match.params.id} />} />
+                <Route exact path="/edit/movie/:id" render={({ match }) => <MovieInput id={match.params.id} />} />
+                <Route exact path="/actors" component={ActorList} />
+                <Route exact path="/add/actor" component={ActorInput} />
+                <Route exact path="/actors/:id" render={({ match }) => <Actor id={match.params.id} />} />
+                <Route exact path="/edit/actor/:id" render={({ match }) => <ActorInput id={match.params.id} />} />
+                <Route path="/genres" component={GenreList} />
+                <Route path="/search" render={({ location }) => <Search filter={new URLSearchParams(location.search).get('filter')} />} />
               </div>
             </div>
           </div>
