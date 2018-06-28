@@ -23,9 +23,7 @@ export class Search extends React.Component {
       <h4>{header}</h4>
       <ul className="list-group">
         {movies.map(({ id, title }) => (
-          <li
-              className="list-group-item"
-              key={`list-movie-${title}`}>
+          <li className="list-group-item" key={`list-movie-${title}`}>
             <Link to={`/movies/${id}`}>{title}</Link>
           </li>
         ))}
