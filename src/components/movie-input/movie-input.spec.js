@@ -1,8 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Button } from '@material-ui/core/umd/material-ui.production.min';
-import MovieInput from './movie-input';
+import { MovieInput } from './movie-input';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -11,8 +10,10 @@ describe('Movie Input', () => {
     const actions = {
       create: jest.fn(),
     };
-    const wrapper = shallow(<MovieInput actions={actions} />);
-    wrapper.find(Button).simulate('click');
+    const wrapper = shallow(<MovieInput
+        history={{ push: jest.fn() }}
+        actions={actions} />);
+    wrapper.instance().save();
     expect(actions.create).toBeCalled();
   });
 
@@ -22,8 +23,9 @@ describe('Movie Input', () => {
     };
     const wrapper = shallow(<MovieInput
         id="1"
+        history={{ push: jest.fn() }}
         actions={actions} />);
-    wrapper.find(Button).simulate('click');
+    wrapper.instance().save();
     expect(actions.update).toBeCalled();
   });
 });
