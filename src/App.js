@@ -21,27 +21,20 @@ const Top = styled.div`
 
 class App extends Component {
   render() {
+    const NavBar = <Route
+        path="/"
+        component={Navigation} />;
     return (
       <Provider store={this.props.store}>
         <Router>
           <div>
-            <Top className="container-fluid pt-3 sticky-top shadow-sm">
-              <div className="row">
-                <div className="col-4 d-none d-md-block"><h1>mooveez</h1></div>
-                <div className="col-12 col-md-8"><SearchInput /></div>
-              </div>
-              <div className="d-block d-md-none col-12">
-                <Route
-                    path="/"
-                    component={Navigation} />
-              </div>
+            <Top className="container-fluid pt-3 sticky-top shadow-sm d-flex flex-column flex-md-row">
+              <div className="col-4 d-none d-md-block"><h1>mooveez</h1></div>
+              <div className="col-12 col-md-8"><SearchInput /></div>
+              <div className="d-block d-md-none col-12">{NavBar}</div>
             </Top>
             <div className="container-fluid d-flex flex-column flex-md-row">
-              <div className="d-none d-md-block col-md-2 pt-3 border-right">
-                <Route
-                    path="/"
-                    component={Navigation} />
-              </div>
+              <div className="d-none d-md-block col-md-2 pt-3 border-right">{NavBar}</div>
               <div className="col-12 col-md-10 py-3">
                 <Route
                     exact
