@@ -1,9 +1,4 @@
-import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import Search from './search';
-
-Enzyme.configure({ adapter: new Adapter() });
+import { Search } from './search';
 
 describe('Search component', () => {
   it('filters movies by title', () => {

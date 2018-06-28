@@ -12,7 +12,7 @@ class SearchInput extends React.Component {
   };
 
   enterSearch = (e) => {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
       e.preventDefault();
       this.setState({ filter: '' });
       this.props.history.push(`/search?filter=${this.state.filter}`);

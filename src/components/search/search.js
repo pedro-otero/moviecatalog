@@ -18,8 +18,8 @@ export class Search extends React.Component {
     };
   }
 
-  renderMovies(header, movies) {
-    return <Fragment>
+  renderMovies = (header, movies) => (
+    <Fragment>
       <h4>{header}</h4>
       <ul className="list-group">
         {movies.map(({ id, title }) => (
@@ -30,8 +30,7 @@ export class Search extends React.Component {
           </li>
         ))}
       </ul>
-    </Fragment>;
-  }
+    </Fragment>);
 
   render() {
     const { filter } = this.props;

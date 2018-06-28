@@ -44,7 +44,7 @@ export class MovieInput extends React.Component {
   });
 
   enterGenre = (e) => {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
       this.setState({
         genres: [...this.state.genres, this.state.genre],
         genre: '',

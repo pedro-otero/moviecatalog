@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Movie from '../movie/movie';
 import { removeMovie } from '../../redux/movies';
 import DeleteButton from '../delete-button/delete-button';
 import AddButton from '../add-button/add-button';
