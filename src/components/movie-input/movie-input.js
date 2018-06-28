@@ -147,7 +147,9 @@ export class MovieInput extends React.Component {
       {actors.length > 0 && this.renderActorSelectors(actors)}
       {actors.length === 0 && <NoActors />}
       <br />
-      <SaveButton onClick={this.save} />
+      <SaveButton
+          disabled={this.state.title.length === 0}
+          onClick={this.save} />
     </form>;
   }
 }

@@ -31,7 +31,7 @@ export class ActorInput extends React.Component {
   };
 
   render() {
-    return <form>
+    return <div>
       <div className="form-group">
         <label htmlFor="name">Name</label>
         <input
@@ -49,8 +49,10 @@ export class ActorInput extends React.Component {
             value={this.state.bio}
             onChange={this.onChange('bio')} />
       </div>
-      <SaveButton onClick={this.save} />
-    </form>;
+      <SaveButton
+          disabled={this.state.name.length === 0}
+          onClick={this.save} />
+    </div>;
   }
 }
 
